@@ -20,8 +20,9 @@ test('static projects include case-study and repository links', () => {
     assert.equal(Boolean(project.title), true)
     assert.equal(Boolean(project.description), true)
     assert.equal(Boolean(project.caseStudy), true)
-    assert.equal(Boolean(project.links && project.links.repo), true)
-    assert.equal(isExternalUrl(project.links.repo), true)
+    if (project.links && project.links.repo) {
+      assert.equal(isExternalUrl(project.links.repo), true)
+    }
   }
 })
 

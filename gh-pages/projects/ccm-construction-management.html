@@ -1,1 +1,197 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"/><title>CCM — Construction &amp; Contractor Management</title><link rel="stylesheet" href="../css/styles.css"></head><body><main class="container"><h1>CCM — Construction &amp; Contractor Management</h1><p>End-to-end real estate project lifecycle platform with role-based access for 5 stakeholder types, covering inspection workflows, financial pipeline (Quotation → Job → Invoice), contractor time &amp; expense tracking, and role-aware analytics dashboards.</p><section><h2>Case Study</h2><p><strong>Problem:</strong> Construction project management involves many stakeholders operating in silos. This fragmentation leads to delays, lost accountability, and opaque billing cycles. The goal was to unify all actors onto a single platform with strict, role-based access.</p><p><strong>Solution:</strong> Built a structured RESTful API in Node.js with a PostgreSQL database. The frontend is a React application that consumes role-scoped API responses. Data visibility is strictly enforced on the server-side for all endpoints.</p><p><strong>Decisions:</strong> Server-side RBAC enforcement is critical; roles are validated at the API layer, not just on the client., Linked financial entities (Quotation, Job, Invoice) use foreign key relationships in PostgreSQL to maintain referential integrity., Dashboard data aggregations are computed server-side per-role to minimize data over-fetching., Scheduling and reminders are modeled as first-class entities to support flexible, multi-stakeholder notifications.</p><p><strong>Results:</strong> Unified 5 distinct stakeholder roles, linked 3 core financial stages end-to-end, and eliminated cross-role data leakage, replacing manual coordination with automated reminders and workflows.</p></section><section><h3>Tech Stack</h3><div class="badges"><span class="badge">Node.js</span><span class="badge">PostgreSQL</span><span class="badge">React</span><span class="badge">RBAC</span><span class="badge">Multi-Role</span><span class="badge">Real Estate</span></div></section><section><a href="../../index.html">Back to Home</a></section></main></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>CCM — Construction &amp; Contractor Management | Ashutosh Raval</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="static-nav">
+    <a href="../" class="nav-logo">Ashutosh Raval</a>
+    <ul class="nav-links">
+      <li><a href="../projects/chat-microservice.html">Projects</a></li>
+      <li><a href="../assets/resume/Ashutosh_Raval_Resume.pdf">Resume</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="project-hero">
+    <a href="../projects/chat-microservice.html" class="back-link">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3L5 8l5 5"/></svg>
+      Back to Projects
+    </a>
+
+    <p class="hero-label">Case Study</p>
+    <h1 class="hero-title">CCM — Construction &amp; Contractor Management</h1>
+    <p class="hero-subtitle">End-to-end real estate project lifecycle platform with role-based access for 5 stakeholder types, covering inspection workflows, financial pipeline (Quotation → Job → Invoice), contractor time &amp; expense tracking, and role-aware analytics dashboards.</p>
+
+    <div class="tag-row"><span class="tag">Node.js</span><span class="tag">PostgreSQL</span><span class="tag">React</span><span class="tag amber">Real Estate</span><span class="tag green">Multi-Role</span></div>
+
+    <div class="meta-row"><div class="meta-item"><span class="meta-label">Domain</span><span class="meta-value">Real Estate / Construction</span></div><div class="meta-item"><span class="meta-label">Roles</span><span class="meta-value">5 (Super Admin, Admin, Inspector, Contractor, Client)</span></div><div class="meta-item"><span class="meta-label">Live</span><a href="https://ccm-dev.webelight.co.in/" target="_blank" rel="noopener" class="live-link"><span class="live-dot"></span>ccm-dev.webelight.co.in</a></div></div>
+  </section>
+
+  <div class="divider"></div>
+
+  <div class="project-content">
+  <div class="section">
+    <p class="section-label">01 / The Challenge</p>
+    <h2>Fragmented workflows across project stakeholders</h2>
+    <p>Construction and real estate project management involves many moving parts — clients, contractors, inspectors, and admin teams — often operating in silos. Manual coordination of inspections, financial approvals, and scheduling leads to delays, lost accountability, and opaque billing cycles. CCM was built to unify all these actors under a single platform: giving each role exactly the data and actions they need, while maintaining a strict audit trail from project creation through to final invoice.</p>
+  </div>
+  <div class="section">
+    <p class="section-label">02 / System Roles</p>
+    <h2>5 distinct roles, one unified platform</h2>
+    <div class="roles-grid">
+      <div class="role-card">
+        <div class="role-icon">&#x1F6E1;&#xFE0F;</div>
+        <div class="role-name">Super Admin</div>
+        <div class="role-desc">Platform-level control. Manages admin accounts and global configuration.</div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">&#x1F464;</div>
+        <div class="role-name">Admin</div>
+        <div class="role-desc">Core operator. Manages clients, projects, quotations, jobs, and invoices.</div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">&#x1F50D;</div>
+        <div class="role-name">Inspector</div>
+        <div class="role-desc">Site-level actor. Conducts inspections and submits detailed inspection reports.</div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">&#x1F527;</div>
+        <div class="role-name">Contractor</div>
+        <div class="role-desc">Executes jobs. Logs time and expense entries against assigned jobs.</div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">&#x1F3E2;</div>
+        <div class="role-name">Client</div>
+        <div class="role-desc">End recipient. Views project progress, inspection reports, and receives invoices.</div>
+      </div></div>
+  </div>
+  <div class="section">
+    <p class="section-label">03 / Core Workflow</p>
+    <h2>From project creation to delivery</h2>
+    <div class="workflow">
+      <div class="wf-step">
+        <div class="wf-num">01</div>
+        <div class="wf-content">
+          <div class="wf-title">Client &amp; Project Onboarding</div>
+          <div class="wf-desc">Admin creates a client profile and registers the real estate project, linking it to the client for full traceability.</div>
+        </div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">02</div>
+        <div class="wf-content">
+          <div class="wf-title">Site Inspection</div>
+          <div class="wf-desc">Inspector visits the site and submits a structured inspection report, which is accessible to the admin and client.</div>
+        </div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">03</div>
+        <div class="wf-content">
+          <div class="wf-title">Quotation</div>
+          <div class="wf-desc">Admin creates a quotation based on inspection findings, scoping the cost of work before committing resources.</div>
+        </div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">04</div>
+        <div class="wf-content">
+          <div class="wf-title">Job Assignment</div>
+          <div class="wf-desc">Admin converts an approved quotation into a job and assigns it to a contractor with defined scope and timelines.</div>
+        </div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">05</div>
+        <div class="wf-content">
+          <div class="wf-title">Time &amp; Expense Logging</div>
+          <div class="wf-desc">Contractor logs hours worked and expenses incurred against the job, building a complete cost record in real time.</div>
+        </div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">06</div>
+        <div class="wf-content">
+          <div class="wf-title">Invoice Generation &amp; Delivery</div>
+          <div class="wf-desc">Admin generates a final invoice from the job record and dispatches it directly to the client through the platform.</div>
+        </div>
+      </div></div>
+  </div>
+  <div class="section">
+    <p class="section-label">04 / Feature Modules</p>
+    <h2>Key capabilities across the platform</h2>
+    <div class="modules-grid">
+      <div class="module-card">
+        <div class="module-title">Role-Aware Dashboard</div>
+        <div class="module-desc">Each role sees contextual analytics — job status, invoice totals, and quote summaries — filterable by weekly, monthly, and yearly ranges.</div>
+      </div>
+      <div class="module-card">
+        <div class="module-title">Inspection Reports</div>
+        <div class="module-desc">Inspectors submit structured site reports with findings. Reports are linked to projects and inform quotation scoping.</div>
+      </div>
+      <div class="module-card">
+        <div class="module-title">Financial Pipeline</div>
+        <div class="module-desc">A connected Quotation → Job → Invoice flow ensures no billing step is skipped and amounts are always traceable to source work.</div>
+      </div>
+      <div class="module-card">
+        <div class="module-title">Contractor Time &amp; Expense</div>
+        <div class="module-desc">Contractors log granular time entries and expenses per job, giving admins full visibility into actual vs. estimated costs.</div>
+      </div>
+      <div class="module-card">
+        <div class="module-title">Schedule &amp; Reminders</div>
+        <div class="module-desc">Admin sets activity-specific reminders for inspectors, contractors, and clients via the scheduling module — reducing missed deadlines.</div>
+      </div>
+      <div class="module-card">
+        <div class="module-title">Project–Client Linkage</div>
+        <div class="module-desc">Every project is bound to a single client, ensuring data scoping and preventing cross-client information leakage.</div>
+      </div></div>
+  </div>
+  <div class="section">
+    <p class="section-label">05 / Architecture Insights</p>
+    <h2>Design decisions that drive reliability</h2>
+    <div class="arch-card"><p>Data visibility is enforced server-side — each API endpoint validates the requesting user's role before returning or mutating data, ensuring that role-based restrictions cannot be bypassed through frontend manipulation.</p><div class="decisions"><div class="decision"><div class="decision-dot"></div><div class="decision-text"><strong>Server</strong> side RBAC enforcement — Role permissions are validated at the API layer, not relying on frontend routing guards alone.</div></div><div class="decision"><div class="decision-dot"></div><div class="decision-text"><strong>Linked financial entities</strong> Quotation, Job, and Invoice share foreign key relationships in PostgreSQL, maintaining referential integrity across the billing pipeline.</div></div><div class="decision"><div class="decision-dot"></div><div class="decision-text"><strong>Role</strong> scoped dashboard queries — Dashboard aggregations (weekly / monthly / yearly) are computed server-side per role, minimising data over-fetching to the client.</div></div><div class="decision"><div class="decision-dot"></div><div class="decision-text"><strong>Scheduling as a first</strong> class module — Reminders are modelled as independent entities associated with projects, activities, and target roles — supporting flexible multi-stakeholder scheduling.</div></div><div class="decision"><div class="decision-dot"></div><div class="decision-text"><strong>Inspection</strong> to-quotation traceability — Inspection reports carry a direct reference to the project, enabling admins to scope quotations with full inspection context available in the same UI.</div></div></div></div>
+  </div>
+  <div class="section">
+    <p class="section-label">06 / Impact</p>
+    <h2>Measurable outcomes delivered</h2>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="impact-value">5<span>×</span></div>
+        <div class="impact-label">Roles unified into one platform</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-value">3<span>×</span></div>
+        <div class="impact-label">Financial stages linked end-to-end</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-value">0<span>ms</span></div>
+        <div class="impact-label">Cross-role data leakage via server-enforced RBAC</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-value">↓ ops</div>
+        <div class="impact-label">Manual coordination replaced by automated reminders</div>
+      </div></div>
+  </div>
+  <div class="section">
+    <p class="section-label">07 / Technology & Infrastructure</p>
+    <h2>Stack</h2>
+    <div class="stack-grid">
+      <div class="stack-group">
+        <div class="stack-group-label">Backend</div>
+        <div class="stack-tags"><span class="stack-tag">Node.js</span><span class="stack-tag">Express</span><span class="stack-tag">PostgreSQL</span><span class="stack-tag">Sequelize</span></div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-group-label">Frontend</div>
+        <div class="stack-tags"><span class="stack-tag">React</span><span class="stack-tag">React Router</span><span class="stack-tag">Axios</span></div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-group-label">Auth &amp; Security</div>
+        <div class="stack-tags"><span class="stack-tag">JWT</span><span class="stack-tag">RBAC</span><span class="stack-tag">Role Middleware</span></div>
+      </div></div>
+  </div></div>
+
+  <footer class="project-footer">&copy; 2026 Ashutosh Raval</footer>
+</body>
+</html>

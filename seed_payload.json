@@ -121,35 +121,70 @@
       "title": "CCM — Construction & Contractor Management",
       "category": "Real Estate / Construction",
       "description": "End-to-end real estate project lifecycle platform with role-based access for 5 stakeholder types, covering inspection workflows, financial pipeline (Quotation → Job → Invoice), contractor time & expense tracking, and role-aware analytics dashboards.",
-      "keyFeatures": [
-        "Multi-role system (Super Admin, Admin, Inspector, Contractor, Client)",
-        "Unified financial pipeline: Quotation → Job → Invoice",
-        "Role-aware analytics dashboard with date-range filtering",
-        "Contractor time and expense logging per job",
-        "Automated reminders via a scheduling module"
-      ],
+      "domain": "Real Estate / Construction",
+      "roleCount": "5 (Super Admin, Admin, Inspector, Contractor, Client)",
       "techStack": ["Node.js", "Express", "PostgreSQL", "Sequelize", "React", "React Router", "Axios", "JWT"],
-      "infrastructure": [],
-      "metrics": [
-        "5 roles unified into one platform",
-        "3 financial stages linked end-to-end",
-        "Zero cross-role data leakage via server-enforced RBAC"
-      ],
-      "impact": "Unified all project actors (clients, contractors, inspectors, admins) into a single platform, eliminating manual coordination, increasing accountability, and providing a clear audit trail for billing.",
-      "caseStudy": {
-        "problemStatement": "Construction project management involves many stakeholders operating in silos. This fragmentation leads to delays, lost accountability, and opaque billing cycles. The goal was to unify all actors onto a single platform with strict, role-based access.",
-        "solutionArchitecture": "Built a structured RESTful API in Node.js with a PostgreSQL database. The frontend is a React application that consumes role-scoped API responses. Data visibility is strictly enforced on the server-side for all endpoints.",
-        "decisions": [
-          "Server-side RBAC enforcement is critical; roles are validated at the API layer, not just on the client.",
-          "Linked financial entities (Quotation, Job, Invoice) use foreign key relationships in PostgreSQL to maintain referential integrity.",
-          "Dashboard data aggregations are computed server-side per-role to minimize data over-fetching.",
-          "Scheduling and reminders are modeled as first-class entities to support flexible, multi-stakeholder notifications."
-        ],
-        "results": "Unified 5 distinct stakeholder roles, linked 3 core financial stages end-to-end, and eliminated cross-role data leakage, replacing manual coordination with automated reminders and workflows.",
-        "architectureDetails": "The system's security model is built on server-side RBAC. Each API endpoint validates the user's role before returning or mutating data, which prevents unauthorized data access even if the client-side UI is manipulated. This ensures a secure-by-default architecture."
+      "techGroups": {
+        "Backend": ["Node.js", "Express", "PostgreSQL", "Sequelize"],
+        "Frontend": ["React", "React Router", "Axios"],
+        "Auth & Security": ["JWT", "RBAC", "Role Middleware"]
       },
-      "links": {},
-      "badges": ["Node.js", "PostgreSQL", "React", "RBAC", "Multi-Role", "Real Estate"]
+      "metrics": [
+        "5 Roles Unified",
+        "3 Financial Stages Linked",
+        "Zero Data Leakage"
+      ],
+      "impactMetrics": [
+        { "value": "5×", "label": "Roles unified into one platform" },
+        { "value": "3×", "label": "Financial stages linked end-to-end" },
+        { "value": "0ms", "label": "Cross-role data leakage via server-enforced RBAC" },
+        { "value": "↓ ops", "label": "Manual coordination replaced by automated reminders" }
+      ],
+      "impact": "Unified all project actors into a single platform, eliminating manual coordination and increasing accountability.",
+      "caseStudy": {
+        "problemStatement": "Construction and real estate project management involves many moving parts — clients, contractors, inspectors, and admin teams — often operating in silos. Manual coordination of inspections, financial approvals, and scheduling leads to delays, lost accountability, and opaque billing cycles. CCM was built to unify all these actors under a single platform: giving each role exactly the data and actions they need, while maintaining a strict audit trail from project creation through to final invoice.",
+        "solutionArchitecture": "CCM provides each role exactly the data and actions they need, while maintaining a strict audit trail from project creation through to final invoice. It is built on a structured RESTful API in Node.js backed by PostgreSQL, with React on the frontend consuming role-scoped API responses.",
+        "architectureDetails": "Data visibility is enforced server-side — each API endpoint validates the requesting user's role before returning or mutating data, ensuring that role-based restrictions cannot be bypassed through frontend manipulation.",
+        "decisions": [
+          "Server-side RBAC enforcement — Role permissions are validated at the API layer, not relying on frontend routing guards alone.",
+          "Linked financial entities — Quotation, Job, and Invoice share foreign key relationships in PostgreSQL, maintaining referential integrity across the billing pipeline.",
+          "Role-scoped dashboard queries — Dashboard aggregations (weekly / monthly / yearly) are computed server-side per role, minimising data over-fetching to the client.",
+          "Scheduling as a first-class module — Reminders are modelled as independent entities associated with projects, activities, and target roles — supporting flexible multi-stakeholder scheduling.",
+          "Inspection-to-quotation traceability — Inspection reports carry a direct reference to the project, enabling admins to scope quotations with full inspection context available in the same UI."
+        ],
+        "results": "Unified 5 distinct stakeholder roles, linked 3 core financial stages end-to-end, and eliminated cross-role data leakage via server-enforced RBAC.",
+        "systemRoles": [
+          { "name": "Super Admin", "description": "Platform-level control. Manages admin accounts and global configuration." },
+          { "name": "Admin", "description": "Core operator. Manages clients, projects, quotations, jobs, and invoices." },
+          { "name": "Inspector", "description": "Site-level actor. Conducts inspections and submits detailed inspection reports." },
+          { "name": "Contractor", "description": "Executes jobs. Logs time and expense entries against assigned jobs." },
+          { "name": "Client", "description": "End recipient. Views project progress, inspection reports, and receives invoices." }
+        ],
+        "coreWorkflow": [
+          { "step": 1, "title": "Client & Project Onboarding", "description": "Admin creates a client profile and registers the real estate project, linking it to the client for full traceability." },
+          { "step": 2, "title": "Site Inspection", "description": "Inspector visits the site and submits a structured inspection report, which is accessible to the admin and client." },
+          { "step": 3, "title": "Quotation", "description": "Admin creates a quotation based on inspection findings, scoping the cost of work before committing resources." },
+          { "step": 4, "title": "Job Assignment", "description": "Admin converts an approved quotation into a job and assigns it to a contractor with defined scope and timelines." },
+          { "step": 5, "title": "Time & Expense Logging", "description": "Contractor logs hours worked and expenses incurred against the job, building a complete cost record in real time." },
+          { "step": 6, "title": "Invoice Generation & Delivery", "description": "Admin generates a final invoice from the job record and dispatches it directly to the client through the platform." }
+        ],
+        "featureModules": [
+          { "title": "Role-Aware Dashboard", "description": "Each role sees contextual analytics — job status, invoice totals, and quote summaries — filterable by weekly, monthly, and yearly ranges." },
+          { "title": "Inspection Reports", "description": "Inspectors submit structured site reports with findings. Reports are linked to projects and inform quotation scoping." },
+          { "title": "Financial Pipeline", "description": "A connected Quotation → Job → Invoice flow ensures no billing step is skipped and amounts are always traceable to source work." },
+          { "title": "Contractor Time & Expense", "description": "Contractors log granular time entries and expenses per job, giving admins full visibility into actual vs. estimated costs." },
+          { "title": "Schedule & Reminders", "description": "Admin sets activity-specific reminders for inspectors, contractors, and clients via the scheduling module — reducing missed deadlines." },
+          { "title": "Project–Client Linkage", "description": "Every project is bound to a single client, ensuring data scoping and preventing cross-client information leakage." }
+        ]
+      },
+      "links": {
+        "live": "https://ccm-dev.webelight.co.in/"
+      },
+      "badges": ["Node.js", "PostgreSQL", "React", "RBAC", "Financials"],
+      "categoryBadges": [
+        { "label": "Real Estate", "variant": "amber" },
+        { "label": "Multi-Role", "variant": "green" }
+      ]
     }
   ]
 }

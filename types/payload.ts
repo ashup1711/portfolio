@@ -13,13 +13,34 @@ export interface Project {
     decisions: string[];
     results: string;
     architectureDetails?: string;
+    systemRoles?: {
+      name: string;
+      description: string;
+    }[];
+    coreWorkflow?: {
+      step: number;
+      title: string;
+      description: string;
+    }[];
+    featureModules?: {
+      title: string;
+      description: string;
+    }[];
   };
   links?: {
     repo?: string;
     live?: string;
   };
   badges?: string[];
+  categoryBadges?: { label: string; variant: string }[];
   infrastructure?: string[];
+  domain?: string;
+  roleCount?: string;
+  impactMetrics?: {
+    value: string;
+    label: string;
+  }[];
+  techGroups?: Record<string, string[]>;
   coverImage?: string;
   images?: string[];
 }

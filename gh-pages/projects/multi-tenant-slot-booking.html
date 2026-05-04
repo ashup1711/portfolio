@@ -1,1 +1,75 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Multi-Tenant Slot Booking Platform</title><link rel="stylesheet" href="../css/styles.css"></head><body><main class="container"><h1>Multi-Tenant Slot Booking Platform</h1><p>Enterprise SaaS platform with strict multi-tenancy, data isolation, and distributed locking.</p><section><h2>Case Study</h2><p><strong>Problem:</strong> Building a SaaS that requires strict data isolation between tenants while allowing a shared resource pool and preventing race conditions during high-volume booking periods.</p><p><strong>Solution:</strong> Adopted a 'Shared Schema, Discriminator Column' approach for cost-efficiency with logical isolation via middleware. Implemented distributed locking using Redis for critical booking sections.</p><p><strong>Decisions:</strong> Logical isolation via tenant_id middleware for performance, Distributed locks for the booking transaction to prevent race conditions, Webhook-based payment reconciliation to ensure eventual consistency</p><p><strong>Results:</strong> Zero reported overbooking incidents in production over 2 years and sub-second tenant data access.</p></section><section><h3>Tech Stack</h3><div class="badges"><span class="badge">Multi-Tenancy</span><span class="badge">SaaS</span><span class="badge">Distributed Locking</span><span class="badge">Node.js</span></div></section><section><a href="../../index.html">Back to Home</a></section></main></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Multi-Tenant Slot Booking Platform | Ashutosh Raval</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="static-nav">
+    <a href="../" class="nav-logo">Ashutosh Raval</a>
+    <ul class="nav-links">
+      <li><a href="../projects/chat-microservice.html">Projects</a></li>
+      <li><a href="../assets/resume/Ashutosh_Raval_Resume.pdf">Resume</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="project-hero">
+    <a href="../projects/chat-microservice.html" class="back-link">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3L5 8l5 5"/></svg>
+      Back to Projects
+    </a>
+
+    <p class="hero-label">Case Study</p>
+    <h1 class="hero-title">Multi-Tenant Slot Booking Platform</h1>
+    <p class="hero-subtitle">Enterprise SaaS platform with strict multi-tenancy, data isolation, and distributed locking.</p>
+
+    <div class="tag-row"><span class="tag">Multi-Tenancy</span><span class="tag">SaaS</span><span class="tag">Distributed Locking</span></div>
+
+    <div class="meta-row"></div>
+  </section>
+
+  <div class="divider"></div>
+
+  <div class="project-content">
+  <div class="section">
+    <p class="section-label">01 / The Challenge</p>
+    <h2>Fragmented workflows across project stakeholders</h2>
+    <p>Building a SaaS that requires strict data isolation between tenants while allowing a shared resource pool and preventing race conditions during high-volume booking periods.</p>
+  </div>
+  <div class="section">
+    <p class="section-label">05 / Architecture Insights</p>
+    <h2>Design decisions that drive reliability</h2>
+    <div class="arch-card"><p>The architecture follows a Layered (N-Tier) design with a dedicated 'Tenant Context' provider in the request pipeline, ensuring that every database query is automatically scoped to the current tenant.</p><div class="decisions"><div class="decision"><div class="decision-dot"></div><div class="decision-text">Logical isolation via tenant_id middleware for performance</div></div><div class="decision"><div class="decision-dot"></div><div class="decision-text">Distributed locks for the booking transaction to prevent race conditions</div></div><div class="decision"><div class="decision-dot"></div><div class="decision-text"><strong>Webhook</strong> based payment reconciliation to ensure eventual consistency</div></div></div></div>
+  </div>
+  <div class="section">
+    <p class="section-label">06 / Impact</p>
+    <h2>Measurable outcomes delivered</h2>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="impact-value">95<span>% code coverage</span></div>
+        <div class="impact-label"></div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-value">zero overbooking incidents</div>
+        <div class="impact-label"></div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-value">100<span>% data isolation audit success</span></div>
+        <div class="impact-label"></div>
+      </div></div>
+  </div>
+  <div class="section">
+    <p class="section-label">07 / Technology & Infrastructure</p>
+    <h2>Stack</h2>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:1.5rem"><span class="stack-tag">Multi-Tenancy</span><span class="stack-tag">SaaS</span><span class="stack-tag">Distributed Locking</span><span class="stack-tag">Node.js</span><span class="stack-tag" style="color:#10b981;border-color:rgba(16,185,129,0.2)">Docker Compose</span><span class="stack-tag" style="color:#10b981;border-color:rgba(16,185,129,0.2)">AWS RDS</span><span class="stack-tag" style="color:#10b981;border-color:rgba(16,185,129,0.2)">CircleCI</span><span class="stack-tag" style="color:#10b981;border-color:rgba(16,185,129,0.2)">ELK Stack</span></div>
+  </div></div>
+
+  <footer class="project-footer">&copy; 2026 Ashutosh Raval</footer>
+</body>
+</html>
