@@ -59,7 +59,7 @@
         "decisions": ["Redis Pub/Sub for presence","GraphQL subscriptions for real-time data","Docker-based horizontal scaling"],
         "results": "Sub-100ms latency, 95% test coverage, scalable across instances"
       },
-      "links": { "repo": "https://github.com/ashutosh/chat-microservice", "live": "https://chat.example.com" },
+      "links": { "repo": "https://github.com/ashutosh/chat-microservice" },
       "badges": ["Node.js","MongoDB","Redis","GraphQL"]
     },
     {
@@ -82,7 +82,7 @@
         "decisions": ["Per-tenant schemas vs shared collections with tenant_id", "WebSockets for real-time updates"],
         "results": "Reliable multi-tenant operations with zero overbooking incidents"
       },
-      "links": { "repo": "https://github.com/ashutosh/slot-booking", "live": "https://booking.example.com" },
+      "links": { "repo": "https://github.com/ashutosh/slot-booking" },
       "badges": ["Node.js","MongoDB","Razorpay","Express.js"]
     },
     {
@@ -105,7 +105,7 @@
         "decisions": ["Use Traqo GPS for live tracking", "Integrate Razorpay for settlements"],
         "results": "End-to-end lifecycle with traceable payments and status updates"
       },
-      "links": { "repo": "https://github.com/ashutosh/navodaya-transport", "live": "https://navodaya.example.com" },
+      "links": { "repo": "https://github.com/ashutosh/navodaya-transport", "live": "https://stage.app.navodayatransport.com/" },
       "badges": ["Node.js","MongoDB","Razorpay","GPS"]
     },
     {
