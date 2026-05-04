@@ -1,0 +1,4 @@
+@import './styles/globals.css';
+/* Global styles import for Next.js App Router */
+html, body, #__next { height: 100%; }
+body { margin: 0; }

@@ -1,0 +1,135 @@
+{
+  "site": {
+    "hero": {
+      "headline": "Senior Full-Stack Backend Developer | Scalable Systems Architect",
+      "subheading": "6+ Years Building Microservices, Real-Time Systems & Cloud-Native Applications",
+      "ctas": [
+        { "label": "View My Work", "href": "/projects" },
+        { "label": "Get In Touch", "href": "/contact" }
+      ],
+      "summary": "Production-grade backend specialist focused on scalable, reliable systems with leadership in microservices, real-time processing, and cloud-native infrastructures."
+    },
+    "aboutBullets": [
+      "6+ years as Senior Node.js Developer at Webelight Solution Pvt. Ltd.",
+      "Expertise in scalable architectures for 100k+ concurrent users",
+      "Leadership in microservices, event-driven systems, and real-time applications",
+      "Strong cloud infrastructure experience (AWS, GCP, Firebase)",
+      "Proven track record in payment gateway integration and enterprise systems"
+    ],
+    "design": {
+      "theme": "dark",
+      "accentColors": ["#1e40af", "#10b981"]
+    },
+    "resume": {
+      "file": {
+        "filename": "Ashutosh_Raval_Resume.pdf",
+        "url": "/resume/Ashutosh_Raval_Resume.pdf",
+        "mimeType": "application/pdf"
+      }
+    },
+    "contact": {
+      "location": "Vijapur, Gujarat, India",
+      "email": "ravalashutosh17@gmail.com",
+      "phone": "+91 9725408903",
+      "socials": {
+        "LinkedIn": "https://www.linkedin.com/in/ashutosh",
+        "GitHub": "https://github.com/ashutosh",
+        "Medium": "https://medium.com/@ashutosh"
+      }
+    }
+  },
+  "projects": [
+    {
+      "slug": "chat-microservice",
+      "title": "Chat Microservice - Real-Time Messaging Platform",
+      "category": "Real-Time Messaging",
+      "description": "Engineered a horizontally-scalable chat system supporting 100k+ concurrent users.",
+      "keyFeatures": [
+        "Real-time presence tracking and notifications via Redis Pub/Sub",
+        "Sub-100ms message delivery latency",
+        "Distributed load balancing across multiple instances",
+        "GraphQL subscription APIs for real-time data synchronization"
+      ],
+      "techStack": ["Node.js","MongoDB","Redis","GraphQL","Socket.IO","Docker","AWS"],
+      "metrics": ["100k+ concurrent users","95% test coverage","sub-100ms latency"],
+      "impact": "Enabled seamless real-time communication at scale",
+      "caseStudy": {
+        "problemStatement": "Need to support 100k+ concurrent users with low latency and presence management",
+        "solutionArchitecture": "WebSocket with Redis Pub/Sub for presence; GraphQL subscriptions for real-time data; horizontal scaling with Docker",
+        "decisions": ["Redis Pub/Sub for presence","GraphQL subscriptions for real-time data","Docker-based horizontal scaling"],
+        "results": "Sub-100ms latency, 95% test coverage, scalable across instances"
+      },
+      "links": { "repo": "https://github.com/ashutosh/chat-microservice", "live": "https://chat.example.com" },
+      "badges": ["Node.js","MongoDB","Redis","GraphQL"]
+    },
+    {
+      "slug": "multi-tenant-slot-booking",
+      "title": "Multi-Tenant Slot Booking Platform",
+      "category": "SaaS / Multi-Tenancy",
+      "description": "SaaS platform with strict multi-tenancy and data isolation.",
+      "keyFeatures": [
+        "Row-level security and per-client data segregation",
+        "Optimistic concurrency control to prevent double-bookings",
+        "Dynamic slot allocation with real-time calendar synchronization",
+        "Razorpay payment integration with automated payouts"
+      ],
+      "techStack": ["Node.js","MongoDB","Razorpay","Express.js","WebSockets"],
+      "metrics": ["95% code coverage","reliable payment processing","zero overbooking incidents"],
+      "impact": "Enterprise-grade reliability for B2B SaaS across tenants",
+      "caseStudy": {
+        "problemStatement": "Need strict data isolation and real-time calendar sync across tenants",
+        "solutionArchitecture": "Tenant-aware data model, row-level security, optimistic locking",
+        "decisions": ["Per-tenant schemas vs shared collections with tenant_id", "WebSockets for real-time updates"],
+        "results": "Reliable multi-tenant operations with zero overbooking incidents"
+      },
+      "links": { "repo": "https://github.com/ashutosh/slot-booking", "live": "https://booking.example.com" },
+      "badges": ["Node.js","MongoDB","Razorpay","Express.js"]
+    },
+    {
+      "slug": "navodaya-transport",
+      "title": "Transportation & Freight Booking Platform (Navodaya Transport)",
+      "category": "Freight Booking",
+      "description": "Role-based freight booking with real-time tracking and payments.",
+      "keyFeatures": [
+        "Role-based access (Loader, Trucker, Admin)",
+        "SIM-based GPS tracking via Traqo integration",
+        "End-to-end payment workflows from booking to settlement",
+        "Admin dashboard for user mgmt and payment reconciliation"
+      ],
+      "techStack": ["Node.js","MongoDB","Razorpay","Traqo GPS","Express.js","Admin Dashboard"],
+      "metrics": ["Real-time shipment tracking","Automated payment reconciliation","Complete booking lifecycle"],
+      "impact": "Streamlined freight operations with transparent tracking and payments",
+      "caseStudy": {
+        "problemStatement": "Need secure role-based access and end-to-end payment flow with live tracking",
+        "solutionArchitecture": "RBAC, GPS integration, payment reconciliation pipeline",
+        "decisions": ["Use Traqo GPS for live tracking", "Integrate Razorpay for settlements"],
+        "results": "End-to-end lifecycle with traceable payments and status updates"
+      },
+      "links": { "repo": "https://github.com/ashutosh/navodaya-transport", "live": "https://navodaya.example.com" },
+      "badges": ["Node.js","MongoDB","Razorpay","GPS"]
+    },
+    {
+      "slug": "multi-domain-experience",
+      "title": "Additional Domain Expertise (Multi-Project Experience)",
+      "category": "Domain Expertise",
+      "description": "Cross-domain experience spanning Order Management, CMS, Insurance & Dating apps.",
+      "keyFeatures": [
+        "Order Management: multi-vendor inventory, streaming updates",
+        "CMS: dynamic publishing and search",
+        "Insurance: policy underwriting and claims",
+        "Dating: real-time messaging and safety features"
+      ],
+      "techStack": ["Node.js","MongoDB","Express.js","WebSockets"],
+      "metrics": ["Cross-domain integration patterns","Scalable event-driven design"],
+      "impact": "Diverse portfolio showing breadth of backend architecture",
+      "caseStudy": {
+        "problemStatement": "Showcase versatility across multiple domains with scalable backends",
+        "solutionArchitecture": "Modular microservices with shared event bus",
+        "decisions": ["Adopted event-driven patterns","Unified auth across domains"],
+        "results": "Demonstrated breadth of backend leadership and architectural skill"
+      },
+      "links": { "repo": "https://github.com/ashutosh" },
+      "badges": ["Node.js","MongoDB","Express.js"]
+    }
+  ]
+}
