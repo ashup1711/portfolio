@@ -224,9 +224,7 @@
           { "title": "Project–Client Linkage", "description": "Every project is bound to a single client, ensuring data scoping and preventing cross-client information leakage." }
         ]
       },
-      "links": {
-        "live": "https://ccm-dev.webelight.co.in/"
-      },
+      "links": {},
       "badges": ["Node.js", "PostgreSQL", "React", "RBAC", "Financials"],
       "categoryBadges": [
         { "label": "Real Estate", "variant": "amber" },
