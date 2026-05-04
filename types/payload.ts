@@ -26,6 +26,12 @@ export interface Project {
       title: string;
       description: string;
     }[];
+    systemFeatures?: {
+      title: string;
+      description: string;
+    }[];
+    performance?: string[];
+    security?: string[];
   };
   links?: {
     repo?: string;

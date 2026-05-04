@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Chat Microservice - Real-Time Messaging Platform | Ashutosh Raval</title>
+  <title>Chat Microservice — Scalable Real-Time Messaging Platform | Ashutosh Raval</title>
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,10 +26,10 @@
     </a>
 
     <p class="hero-label">Case Study</p>
-    <h1 class="hero-title">Chat Microservice - Real-Time Messaging Platform</h1>
-    <p class="hero-subtitle">Engineered a horizontally-scalable chat system supporting 100k+ concurrent users with distributed state management.</p>
+    <h1 class="hero-title">Chat Microservice — Scalable Real-Time Messaging Platform</h1>
+    <p class="hero-subtitle">Designed and developed a production-grade chat microservice enabling real-time communication, secure messaging, and high concurrency handling with event-driven architecture and distributed components.</p>
 
-    <div class="tag-row"><span class="tag">Node.js</span><span class="tag">Redis</span><span class="tag">GraphQL</span></div>
+    <div class="tag-row"><span class="tag">Node.js</span><span class="tag">Redis</span><span class="tag">Socket.IO</span><span class="tag">Distributed Systems</span><span class="tag amber">Microservice</span><span class="tag green">Real-Time</span></div>
 
     <div class="meta-row"></div>
   </section>
@@ -39,36 +39,178 @@
   <div class="project-content">
   <div class="section">
     <p class="section-label">01 / The Challenge</p>
-    <h2>Fragmented workflows across project stakeholders</h2>
-    <p>Need to support 100k+ concurrent users with low latency and global presence management while maintaining message ordering and consistency.</p>
+    <h2>Building a production-grade real-time messaging system</h2>
+    <p>Building a production-grade real-time messaging system that supports high concurrency, low-latency communication, and secure message exchange while maintaining scalability and fault tolerance across distributed infrastructure.</p>
   </div>
   <div class="section">
-    <p class="section-label">05 / Architecture Insights</p>
+    <p class="section-label">02 / Key Contributions</p>
+    <h2>What I built and delivered</h2>
+    <div class="workflow">
+      <div class="wf-step">
+        <div class="wf-num">01</div>
+        <div class="wf-content">
+          <div class="wf-desc">Real-time messaging system using WebSockets (Socket.IO).</div>
+        </div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">02</div>
+        <div class="wf-content">
+          <div class="wf-desc">Scalable one-to-one and group chat communication.</div>
+        </div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">03</div>
+        <div class="wf-content">
+          <div class="wf-desc">User presence tracking (online/offline) with Redis and socket lifecycle events.</div>
+        </div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">04</div>
+        <div class="wf-content">
+          <div class="wf-desc">Reliable message lifecycle handling (sent, delivered, read) with acknowledgment mechanisms.</div>
+        </div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">05</div>
+        <div class="wf-content">
+          <div class="wf-desc">Push notification system for offline users using FCM/Web Push.</div>
+        </div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">06</div>
+        <div class="wf-content">
+          <div class="wf-desc">Secure file and media sharing with cloud storage integration.</div>
+        </div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">07</div>
+        <div class="wf-content">
+          <div class="wf-desc">User-level message deletion (soft delete) ensuring data consistency.</div>
+        </div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">08</div>
+        <div class="wf-content">
+          <div class="wf-desc">End-to-end encryption using public/private key cryptography.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <p class="section-label">03 / System Features</p>
+    <h2>Core capabilities of the platform</h2>
+    <div class="modules-grid">
+      <div class="module-card">
+        <div class="module-title">Real-Time Messaging</div>
+        <div class="module-desc">Low-latency bidirectional communication using WebSockets.</div>
+      </div>
+      <div class="module-card">
+        <div class="module-title">Read & Delivery Receipts</div>
+        <div class="module-desc">Real-time tracking of message state transitions.</div>
+      </div>
+      <div class="module-card">
+        <div class="module-title">Presence System</div>
+        <div class="module-desc">Accurate online/offline tracking using heartbeat and socket events.</div>
+      </div>
+      <div class="module-card">
+        <div class="module-title">Push Notifications</div>
+        <div class="module-desc">Reliable delivery for offline users.</div>
+      </div>
+      <div class="module-card">
+        <div class="module-title">Media Sharing</div>
+        <div class="module-desc">Supports file and image uploads with validation and storage abstraction.</div>
+      </div>
+      <div class="module-card">
+        <div class="module-title">Group Activity Tracking</div>
+        <div class="module-desc">Real-time active user count in chat groups.</div>
+      </div>
+      <div class="module-card">
+        <div class="module-title">Data Privacy</div>
+        <div class="module-desc">End-to-end encryption for secure message exchange.</div>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <p class="section-label">04 / Architecture Insights</p>
     <h2>Design decisions that drive reliability</h2>
-    <div class="arch-card"><p>The system uses a 'Fan-out' pattern for message distribution. Load balancers use consistent hashing to route users to the nearest node, while Redis acts as the central orchestrator for state synchronization across the cluster.</p><div class="decisions"><div class="decision"><div class="decision-dot"></div><div class="decision-text"><strong>Redis Pub/Sub for presence to handle cross</strong> node communication</div></div><div class="decision"><div class="decision-dot"></div><div class="decision-text">Horizontal scaling with Docker &amp; ECS to manage traffic bursts</div></div><div class="decision"><div class="decision-dot"></div><div class="decision-text"><strong>MongoDB for message persistence with TTL</strong> based archiving</div></div></div></div>
+    <div class="arch-card"><p>The system uses an event-driven architecture with WebSockets for real-time communication. Load balancers distribute traffic across stateless server instances, while Redis acts as the central orchestrator for presence management and inter-service communication. Message queues handle asynchronous processing for push notifications and file uploads.</p><div class="decisions"><div class="decision"><div class="decision-dot"></div><div class="decision-text">Redis Pub/Sub for presence to handle cross-node communication</div></div><div class="decision"><div class="decision-dot"></div><div class="decision-text">Horizontal scaling with stateless servers to manage traffic bursts</div></div><div class="decision"><div class="decision-dot"></div><div class="decision-text">MongoDB/PostgreSQL for message persistence with optimized schema for high-throughput</div></div><div class="decision"><div class="decision-dot"></div><div class="decision-text">Socket.IO for WebSocket abstraction with automatic fallback</div></div><div class="decision"><div class="decision-dot"></div><div class="decision-text">Asymmetric cryptography for end-to-end message encryption</div></div></div></div>
   </div>
   <div class="section">
-    <p class="section-label">06 / Impact</p>
+    <p class="section-label">05 / Performance & Scalability</p>
+    <h2>Built for high concurrency and low latency</h2>
+    <div class="arch-card">
+      <div class="decisions">
+        <div class="decision"><div class="decision-dot"></div><div class="decision-text">Designed to handle high concurrency with minimal latency</div></div>
+        <div class="decision"><div class="decision-dot"></div><div class="decision-text">Supports horizontal scaling using multiple socket instances</div></div>
+        <div class="decision"><div class="decision-dot"></div><div class="decision-text">Efficient handling of real-time events and message queues</div></div>
+        <div class="decision"><div class="decision-dot"></div><div class="decision-text">Reduced database load using caching and in-memory state management</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <p class="section-label">06 / Security</p>
+    <h2>Privacy and data protection measures</h2>
+    <div class="arch-card">
+      <div class="decisions">
+        <div class="decision"><div class="decision-dot"></div><div class="decision-text">End-to-end encryption using asymmetric cryptography</div></div>
+        <div class="decision"><div class="decision-dot"></div><div class="decision-text">Secure file upload handling and validation</div></div>
+        <div class="decision"><div class="decision-dot"></div><div class="decision-text">Protection against unauthorized message access</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <p class="section-label">07 / Impact</p>
     <h2>Measurable outcomes delivered</h2>
     <div class="impact-grid">
       <div class="impact-card">
-        <div class="impact-value">100<span>k+ concurrent users</span></div>
-        <div class="impact-label"></div>
+        <div class="impact-value">100k<span>+</span></div>
+        <div class="impact-label">Concurrent users supported with minimal latency</div>
       </div>
       <div class="impact-card">
-        <div class="impact-value">95<span>% test coverage</span></div>
-        <div class="impact-label"></div>
+        <div class="impact-value">E2E</div>
+        <div class="impact-label">End-to-end encryption for secure message exchange</div>
       </div>
       <div class="impact-card">
-        <div class="impact-value">sub-100<span>ms latency</span></div>
-        <div class="impact-label"></div>
-      </div></div>
+        <div class="impact-value">99.9<span>%</span></div>
+        <div class="impact-label">Uptime with fault-tolerant message delivery</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-value">↓ DB</div>
+        <div class="impact-label">Reduced database load using caching and in-memory state</div>
+      </div>
+    </div>
   </div>
   <div class="section">
-    <p class="section-label">07 / Technology & Infrastructure</p>
+    <p class="section-label">08 / Technology & Infrastructure</p>
     <h2>Stack</h2>
-    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:1.5rem"><span class="stack-tag">Node.js</span><span class="stack-tag">Redis</span><span class="stack-tag">GraphQL</span><span class="stack-tag">Distributed Systems</span><span class="stack-tag" style="color:#10b981;border-color:rgba(16,185,129,0.2)">AWS ECS</span><span class="stack-tag" style="color:#10b981;border-color:rgba(16,185,129,0.2)">Terraform</span><span class="stack-tag" style="color:#10b981;border-color:rgba(16,185,129,0.2)">GitHub Actions CI/CD</span><span class="stack-tag" style="color:#10b981;border-color:rgba(16,185,129,0.2)">Prometheus/Grafana</span></div>
-  </div></div>
+    <div class="stack-grid">
+      <div class="stack-group">
+        <div class="stack-group-label">Backend</div>
+        <div class="stack-tags"><span class="stack-tag">Node.js</span><span class="stack-tag">Express</span></div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-group-label">Real-Time</div>
+        <div class="stack-tags"><span class="stack-tag">Socket.IO</span><span class="stack-tag">WebSockets</span></div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-group-label">Database</div>
+        <div class="stack-tags"><span class="stack-tag">MongoDB</span><span class="stack-tag">PostgreSQL</span></div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-group-label">Caching & Pub/Sub</div>
+        <div class="stack-tags"><span class="stack-tag">Redis</span></div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-group-label">Storage</div>
+        <div class="stack-tags"><span class="stack-tag">AWS S3</span><span class="stack-tag">Cloud Storage</span></div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-group-label">Notifications</div>
+        <div class="stack-tags"><span class="stack-tag">Firebase Cloud Messaging (FCM)</span></div>
+      </div>
+    </div>
+  </div>
+  </div>
 
   <footer class="project-footer">&copy; 2026 Ashutosh Raval</footer>
 </body>

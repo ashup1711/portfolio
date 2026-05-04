@@ -41,28 +41,75 @@
   "projects": [
     {
       "slug": "chat-microservice",
-      "title": "Chat Microservice - Real-Time Messaging Platform",
+      "title": "Chat Microservice — Scalable Real-Time Messaging Platform",
       "category": "Real-Time Messaging",
-      "description": "Engineered a horizontally-scalable chat system supporting 100k+ concurrent users with distributed state management.",
+      "description": "Designed and developed a production-grade chat microservice enabling real-time communication, secure messaging, and high concurrency handling with event-driven architecture and distributed components.",
       "keyFeatures": [
-        "Real-time presence tracking and notifications via Redis Pub/Sub",
-        "Sub-100ms message delivery latency",
-        "Distributed load balancing across multiple instances with sticky sessions",
-        "GraphQL subscription APIs for real-time data synchronization"
+        "Real-time messaging system using WebSockets (Socket.IO)",
+        "Scalable one-to-one and group chat communication",
+        "User presence tracking (online/offline) with Redis and socket lifecycle events",
+        "Reliable message lifecycle handling (sent, delivered, read) with acknowledgment mechanisms",
+        "Push notification system for offline users using FCM/Web Push",
+        "Secure file and media sharing with cloud storage integration",
+        "User-level message deletion (soft delete) ensuring data consistency",
+        "End-to-end encryption using public/private key cryptography"
       ],
-      "techStack": ["Node.js","MongoDB","Redis","GraphQL","Socket.IO","Docker","AWS"],
-      "infrastructure": ["AWS ECS","Terraform","GitHub Actions CI/CD","Prometheus/Grafana"],
-      "metrics": ["100k+ concurrent users","95% test coverage","sub-100ms latency"],
-      "impact": "Enabled seamless real-time communication at scale for a global user base.",
+      "techStack": ["Node.js", "Express", "MongoDB", "PostgreSQL", "Redis", "Socket.IO", "AWS S3", "FCM"],
+      "techGroups": {
+        "Backend": ["Node.js", "Express"],
+        "Real-Time": ["Socket.IO", "WebSockets"],
+        "Database": ["MongoDB", "PostgreSQL"],
+        "Caching & Pub/Sub": ["Redis"],
+        "Storage": ["AWS S3", "Cloud Storage"],
+        "Notifications": ["Firebase Cloud Messaging (FCM)"]
+      },
+      "metrics": ["100k+ concurrent users", "sub-100ms latency", "99.9% uptime"],
+      "impactMetrics": [
+        { "value": "100k+", "label": "Concurrent users supported with minimal latency" },
+        { "value": "E2E", "label": "End-to-end encryption for secure message exchange" },
+        { "value": "99.9%", "label": "Uptime with fault-tolerant message delivery" },
+        { "value": "↓ DB", "label": "Reduced database load using caching and in-memory state" }
+      ],
+      "impact": "Delivered a scalable and reliable real-time communication system with improved user engagement through presence and notification features, ensuring secure messaging aligned with modern privacy standards.",
       "caseStudy": {
-        "problemStatement": "Need to support 100k+ concurrent users with low latency and global presence management while maintaining message ordering and consistency.",
-        "solutionArchitecture": "Decoupled messaging architecture using WebSocket for bi-directional communication, Redis Pub/Sub for cross-node presence broadcasting, and GraphQL subscriptions for schema-driven real-time updates.",
-        "decisions": ["Redis Pub/Sub for presence to handle cross-node communication","Horizontal scaling with Docker & ECS to manage traffic bursts","MongoDB for message persistence with TTL-based archiving"],
-        "results": "Achieved sub-100ms latency across geographic regions with 99.9% uptime and zero message loss during peak loads.",
-        "architectureDetails": "The system uses a 'Fan-out' pattern for message distribution. Load balancers use consistent hashing to route users to the nearest node, while Redis acts as the central orchestrator for state synchronization across the cluster."
+        "problemStatement": "Building a production-grade real-time messaging system that supports high concurrency, low-latency communication, and secure message exchange while maintaining scalability and fault tolerance across distributed infrastructure.",
+        "solutionArchitecture": "Event-driven architecture using WebSockets and asynchronous processing with horizontally scalable microservice design. Redis Pub/Sub for inter-service communication and presence management, optimized database schema for high-throughput messaging workloads, and fault-tolerant message delivery with retry strategies.",
+        "architectureDetails": "The system uses an event-driven architecture with WebSockets for real-time communication. Load balancers distribute traffic across stateless server instances, while Redis acts as the central orchestrator for presence management and inter-service communication. Message queues handle asynchronous processing for push notifications and file uploads.",
+        "decisions": [
+          "Redis Pub/Sub for presence to handle cross-node communication",
+          "Horizontal scaling with stateless servers to manage traffic bursts",
+          "MongoDB/PostgreSQL for message persistence with optimized schema for high-throughput",
+          "Socket.IO for WebSocket abstraction with automatic fallback",
+          "Asymmetric cryptography for end-to-end message encryption"
+        ],
+        "results": "Achieved sub-100ms latency with horizontal scaling support, fault-tolerant message delivery, and reduced database load through caching and in-memory state management.",
+        "systemFeatures": [
+          { "title": "Real-Time Messaging", "description": "Low-latency bidirectional communication using WebSockets." },
+          { "title": "Read & Delivery Receipts", "description": "Real-time tracking of message state transitions." },
+          { "title": "Presence System", "description": "Accurate online/offline tracking using heartbeat and socket events." },
+          { "title": "Push Notifications", "description": "Reliable delivery for offline users." },
+          { "title": "Media Sharing", "description": "Supports file and image uploads with validation and storage abstraction." },
+          { "title": "Group Activity Tracking", "description": "Real-time active user count in chat groups." },
+          { "title": "Data Privacy", "description": "End-to-end encryption for secure message exchange." }
+        ],
+        "performance": [
+          "Designed to handle high concurrency with minimal latency",
+          "Supports horizontal scaling using multiple socket instances",
+          "Efficient handling of real-time events and message queues",
+          "Reduced database load using caching and in-memory state management"
+        ],
+        "security": [
+          "End-to-end encryption using asymmetric cryptography",
+          "Secure file upload handling and validation",
+          "Protection against unauthorized message access"
+        ]
       },
       "links": {},
-      "badges": ["Node.js","Redis","GraphQL","Distributed Systems"]
+      "badges": ["Node.js", "Redis", "Socket.IO", "Distributed Systems"],
+      "categoryBadges": [
+        { "label": "Microservice", "variant": "amber" },
+        { "label": "Real-Time", "variant": "green" }
+      ]
     },
     {
       "slug": "multi-tenant-slot-booking",

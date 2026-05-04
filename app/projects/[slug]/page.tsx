@@ -154,6 +154,38 @@ export default async function ProjectDetail({ params }: { params: { slug: string
           </div>
         )}
 
+        {project.keyFeatures && project.keyFeatures.length > 0 && (
+          <div className="section">
+            <p className="section-label">02 / Key Contributions</p>
+            <h2>What I built and delivered</h2>
+            <div className="workflow">
+              {project.keyFeatures.map((feature, i) => (
+                <div key={i} className="wf-step">
+                  <div className="wf-num">{String(i + 1).padStart(2, '0')}</div>
+                  <div className="wf-content">
+                    <div className="wf-desc">{feature}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {project.caseStudy?.systemFeatures && project.caseStudy.systemFeatures.length > 0 && (
+          <div className="section">
+            <p className="section-label">03 / System Features</p>
+            <h2>Core capabilities of the platform</h2>
+            <div className="modules-grid">
+              {project.caseStudy.systemFeatures.map(feature => (
+                <div key={feature.title} className="module-card">
+                  <div className="module-title">{feature.title}</div>
+                  <div className="module-desc">{feature.description}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
         {project.caseStudy?.featureModules && project.caseStudy.featureModules.length > 0 && (
           <div className="section">
             <p className="section-label">04 / Feature Modules</p>
@@ -171,7 +203,7 @@ export default async function ProjectDetail({ params }: { params: { slug: string
 
         {(project.caseStudy?.architectureDetails || decisions.length > 0) && (
           <div className="section">
-            <p className="section-label">05 / Architecture Insights</p>
+            <p className="section-label">{project.keyFeatures && project.keyFeatures.length > 0 ? (project.caseStudy?.systemFeatures && project.caseStudy.systemFeatures.length > 0 ? '04 / Architecture Insights' : '03 / Architecture Insights') : '05 / Architecture Insights'}</p>
             <h2>Design decisions that drive reliability</h2>
             <div className="arch-card">
               {project.caseStudy?.architectureDetails && (
@@ -198,9 +230,43 @@ export default async function ProjectDetail({ params }: { params: { slug: string
           </div>
         )}
 
+        {project.caseStudy?.performance && project.caseStudy.performance.length > 0 && (
+          <div className="section">
+            <p className="section-label">05 / Performance & Scalability</p>
+            <h2>Built for high concurrency and low latency</h2>
+            <div className="arch-card">
+              <div className="decisions">
+                {project.caseStudy.performance.map((item, i) => (
+                  <div key={i} className="decision">
+                    <div className="decision-dot"></div>
+                    <div className="decision-text">{item}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
+        {project.caseStudy?.security && project.caseStudy.security.length > 0 && (
+          <div className="section">
+            <p className="section-label">06 / Security</p>
+            <h2>Privacy and data protection measures</h2>
+            <div className="arch-card">
+              <div className="decisions">
+                {project.caseStudy.security.map((item, i) => (
+                  <div key={i} className="decision">
+                    <div className="decision-dot"></div>
+                    <div className="decision-text">{item}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
+
         {(impactMetrics.length > 0 || metrics.length > 0) && (
           <div className="section">
-            <p className="section-label">06 / Impact</p>
+            <p className="section-label">{project.caseStudy?.security && project.caseStudy.security.length > 0 ? '07 / Impact' : (project.caseStudy?.performance && project.caseStudy.performance.length > 0 ? '06 / Impact' : '06 / Impact')}</p>
             <h2>Measurable outcomes delivered</h2>
             <div className="impact-grid">
               {impactMetrics.length > 0
@@ -227,7 +293,7 @@ export default async function ProjectDetail({ params }: { params: { slug: string
 
         {(techGroups || badges.length > 0 || infra.length > 0) && (
           <div className="section">
-            <p className="section-label">07 / Technology & Infrastructure</p>
+            <p className="section-label">08 / Technology & Infrastructure</p>
             <h2>Stack</h2>
             {techGroups ? (
               <div className="stack-grid">
