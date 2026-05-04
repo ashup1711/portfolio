@@ -1,5 +1,5 @@
 1:HL["/portfolio/_next/static/css/4f98b721c72fcf35.css","style",{"crossOrigin":""}]
-0:["LaJR0GUL4-IJl9fSgS4tD",[[["",{"children":["projects",{"children":[["slug","multi-tenant-slot-booking","d"],{"children":["__PAGE__?{\"slug\":\"multi-tenant-slot-booking\"}",{}]}]}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/portfolio/_next/static/css/4f98b721c72fcf35.css","precedence":"next","crossOrigin":""}]],"$L3"]]]]
+0:["cYaEv69jCkYVu9bDDT9rD",[[["",{"children":["projects",{"children":[["slug","multi-tenant-slot-booking","d"],{"children":["__PAGE__?{\"slug\":\"multi-tenant-slot-booking\"}",{}]}]}]},"$undefined","$undefined",true],"$L2",[[["$","link","0",{"rel":"stylesheet","href":"/portfolio/_next/static/css/4f98b721c72fcf35.css","precedence":"next","crossOrigin":""}]],"$L3"]]]]
 4:I{"id":4724,"chunks":["724:static/chunks/724-d6c58314d871b83b.js","931:static/chunks/app/page-a2692edd5e7eb470.js"],"name":"","async":false}
 5:I{"id":1443,"chunks":["272:static/chunks/webpack-41945da4902dfc4b.js","971:static/chunks/fd9d1056-0cb6ea13074dbefd.js","864:static/chunks/864-00564018faffcecd.js"],"name":"","async":false}
 6:I{"id":8639,"chunks":["272:static/chunks/webpack-41945da4902dfc4b.js","971:static/chunks/fd9d1056-0cb6ea13074dbefd.js","864:static/chunks/864-00564018faffcecd.js"],"name":"","async":false}
