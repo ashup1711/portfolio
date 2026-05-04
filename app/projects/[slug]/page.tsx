@@ -32,29 +32,74 @@ export default async function ProjectDetail({ params }: { params: { slug: string
   if (!project) return notFound()
   const decisions = project.caseStudy?.decisions?.filter(Boolean) || []
   const badges = project.badges ?? project.techStack ?? []
+  const infra = project.infrastructure ?? []
+
   return (
-    <main style={{ padding: '40px 20px' }}>
-      <h1>{project.title}</h1>
-      <p style={{ color: '#cbd5e1' }}>{project.description}</p>
-      <section style={{ marginTop: 20 }}>
-        <h2>Case Study</h2>
-        {project.caseStudy?.problemStatement && <p style={{ color: '#cbd5e1' }}><strong>Problem:</strong> {project.caseStudy.problemStatement}</p>}
-        {project.caseStudy?.solutionArchitecture && <p style={{ color: '#cbd5e1' }}><strong>Solution:</strong> {project.caseStudy.solutionArchitecture}</p>}
-        {decisions.length > 0 && <p style={{ color: '#cbd5e1' }}><strong>Decisions:</strong> {decisions.join(', ')}</p>}
-        {project.caseStudy?.results && <p style={{ color: '#cbd5e1' }}><strong>Results:</strong> {project.caseStudy.results}</p>}
-        {!project.caseStudy && <p style={{ color: '#cbd5e1' }}>No case study details are available yet.</p>}
-      </section>
-      <section style={{ marginTop: 20 }}>
-        <h3>Tech Stack</h3>
-        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          {badges.map((b: string) => (
-            <span key={b} style={{ fontSize: 12, padding: '6px 10px', borderRadius: 999, background: '#1f2b54', color: '#cbd5e1' }}>{b}</span>
-          ))}
-        </div>
-      </section>
-      <section style={{ marginTop: 20, display: 'flex', gap: 12, flexWrap: 'wrap' }}>
-        {project.links?.repo && <a href={project.links.repo} target="_blank" rel="noreferrer" className="button">GitHub Repository</a>}
-        {project.links?.live && <a href={project.links.live} target="_blank" rel="noreferrer" className="button">Live Demo</a>}
+    <main style={{ padding: '60px 20px', maxWidth: '1000px', margin: '0 auto' }}>
+      <h1 style={{ fontSize: '2.5rem', marginBottom: '16px' }}>{project.title}</h1>
+      <p style={{ fontSize: '1.2rem', color: '#cbd5e1', lineHeight: '1.6' }}>{project.description}</p>
+
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '40px', marginTop: '40px' }}>
+        <section>
+          <h2 style={{ fontSize: '1.5rem', borderBottom: '2px solid #1e3a8a', paddingBottom: '8px', marginBottom: '20px' }}>Case Study</h2>
+          {project.caseStudy?.problemStatement && (
+            <div style={{ marginBottom: '20px' }}>
+              <h3 style={{ fontSize: '1.1rem', color: '#fff' }}>The Challenge</h3>
+              <p style={{ color: '#cbd5e1' }}>{project.caseStudy.problemStatement}</p>
+            </div>
+          )}
+          {project.caseStudy?.solutionArchitecture && (
+            <div style={{ marginBottom: '20px' }}>
+              <h3 style={{ fontSize: '1.1rem', color: '#fff' }}>The Solution</h3>
+              <p style={{ color: '#cbd5e1' }}>{project.caseStudy.solutionArchitecture}</p>
+            </div>
+          )}
+          {project.caseStudy?.results && (
+            <div style={{ marginBottom: '20px' }}>
+              <h3 style={{ fontSize: '1.1rem', color: '#fff' }}>The Impact</h3>
+              <p style={{ color: '#cbd5e1' }}>{project.caseStudy.results}</p>
+            </div>
+          )}
+        </section>
+
+        <section>
+          <div style={{ background: '#0f172a', padding: '24px', borderRadius: '12px', border: '1px solid #1e2937' }}>
+            <h2 style={{ fontSize: '1.2rem', marginTop: 0, marginBottom: '16px', color: '#3b82f6' }}>Architecture Insights</h2>
+            {project.caseStudy?.architectureDetails ? (
+              <p style={{ color: '#cbd5e1', fontSize: '0.95rem', fontStyle: 'italic' }}>{project.caseStudy.architectureDetails}</p>
+            ) : (
+              <p style={{ color: '#94a3b8', fontSize: '0.95rem' }}>Detailed architectural documentation available upon request.</p>
+            )}
+
+            <h3 style={{ fontSize: '1.1rem', marginTop: '24px', marginBottom: '12px', color: '#fff' }}>Key Decisions</h3>
+            <ul style={{ paddingLeft: '20px', color: '#cbd5e1', fontSize: '0.95rem' }}>
+              {decisions.map((d: string, i: number) => (
+                <li key={i} style={{ marginBottom: '8px' }}>{d}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div style={{ marginTop: '24px' }}>
+            <h3 style={{ fontSize: '1.1rem', marginBottom: '12px' }}>Technology & Infrastructure</h3>
+            <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', marginBottom: '16px' }}>
+              {badges.map((b: string) => (
+                <span key={b} style={{ fontSize: 11, fontWeight: 'bold', padding: '4px 10px', borderRadius: 4, background: '#1e2937', color: '#3b82f6', border: '1px solid #3b82f6' }}>{b}</span>
+              ))}
+            </div>
+            {infra.length > 0 && (
+              <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+                {infra.map((item: string) => (
+                  <span key={item} style={{ fontSize: 11, fontWeight: 'bold', padding: '4px 10px', borderRadius: 4, background: '#1e2937', color: '#10b981', border: '1px solid #10b981' }}>{item}</span>
+                ))}
+              </div>
+            )}
+          </div>
+        </section>
+      </div>
+
+      <section style={{ marginTop: '60px', borderTop: '1px solid #1e2937', paddingTop: '32px', display: 'flex', gap: '16px' }}>
+        {project.links?.repo && <a href={project.links.repo} target="_blank" rel="noreferrer" style={{ padding: '12px 24px', background: '#1e40af', color: '#fff', borderRadius: '8px', textDecoration: 'none', fontWeight: 'bold' }}>View Repository</a>}
+        {project.links?.live && <a href={project.links.live} target="_blank" rel="noreferrer" style={{ padding: '12px 24px', border: '1px solid #1e40af', color: '#fff', borderRadius: '8px', textDecoration: 'none', fontWeight: 'bold' }}>Live Application</a>}
       </section>
     </main>
   )

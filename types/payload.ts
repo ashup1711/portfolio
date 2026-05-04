@@ -12,12 +12,14 @@ export interface Project {
     solutionArchitecture: string;
     decisions: string[];
     results: string;
+    architectureDetails?: string;
   };
   links?: {
     repo?: string;
     live?: string;
   };
   badges?: string[];
+  infrastructure?: string[];
   coverImage?: string;
   images?: string[];
 }
