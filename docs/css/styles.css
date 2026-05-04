@@ -1,10 +1,31 @@
-/* Basic dark theme for static export */
-.site-header { display: flex; justify-content: space-between; align-items: center; padding: 16px; background: #0b1020; border-bottom: 1px solid #1e2a57; }
+/* Modern, minimal light-to-dark toggle via token system (static export) */
+:root {
+  --bg: #f8f9fb;
+  --fg: #111827;
+  --muted: #6b7280;
+  --card: #0f1b2b;
+  --border: #e5e7eb;
+  --accent: #1e3a8a;
+  --accent2: #0ea5e9;
+}
+html, body { background: var(--bg); color: var(--fg); font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; }
+.site-header { display: flex; justify-content: space-between; align-items: center; padding: 16px; background: #0b1020; border-bottom: 2px solid #1e2a57; }
 .container { padding: 0 20px; max-width: 1000px; margin: 0 auto; }
+.brand { color: #fff; font-weight: 700; text-decoration: none; }
 .hero { padding: 24px 0; }
-.cta { display: inline-block; margin-right: 8px; padding: 10px 14px; background: #1e3a8a; color: white; text-decoration: none; border-radius: 6px; }
-.card { border:1px solid #2a2f4f; padding:16px; border-radius: 12px; background:#11152b; }
+.hero h1 { font-family: Georgia, 'Times New Roman', serif; font-size: 2.6rem; margin: 0 0 8px; }
+.hero p { color: #374151; }
+.cta { display: inline-block; margin-right: 8px; padding: 12px 18px; background: var(--accent); color: #fff; text-decoration: none; border-radius: 8px; transition: transform .2s; }
+.cta:hover { transform: translateY(-2px); }
+.lead { color: #374151; max-width: 860px; }
+.about { padding: 40px 0; }
+.projects { padding: 0 0 40px; }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
-.badge { background: #1f2b54; color: #cbd5e1; padding: 4px 8px; border-radius:999px; font-size:12px; }
-.link { color: #93c5fd; }
-.site-footer { text-align: center; padding: 16px; color: #cbd5e1; }
+.card { border: 1px solid var(--border); padding: 16px; border-radius: 14px; background: #0b1220; color: #e5e7eb; height: 100%; display: flex; flex-direction: column; }
+.card h3 { margin: 0 0 6px; font-size: 1.05rem; }
+.card p { color: #cbd5e1; }
+.card:hover { box-shadow: 0 6px 20px rgba(0,0,0,.25); }
+.badges { display: flex; gap: 6px; flex-wrap: wrap; margin-top: auto; }
+.badge { font-size: 12px; padding: 4px 8px; border-radius: 999px; background: #1f2b54; color:#cbd5e1; }
+.link { color: #93c5fd; text-decoration: none; }
+.site-footer { text-align: center; padding: 12px; color: #6b7280; }
