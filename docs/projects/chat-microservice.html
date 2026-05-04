@@ -1,1 +1,75 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"/><title>Chat Microservice - Real-Time Messaging Platform</title><link rel="stylesheet" href="../css/styles.css"></head><body><main class="container"><h1>Chat Microservice - Real-Time Messaging Platform</h1><p>Engineered a horizontally-scalable chat system supporting 100k+ concurrent users with distributed state management.</p><section><h2>Case Study</h2><p><strong>Problem:</strong> Need to support 100k+ concurrent users with low latency and global presence management while maintaining message ordering and consistency.</p><p><strong>Solution:</strong> Decoupled messaging architecture using WebSocket for bi-directional communication, Redis Pub/Sub for cross-node presence broadcasting, and GraphQL subscriptions for schema-driven real-time updates.</p><p><strong>Decisions:</strong> Redis Pub/Sub for presence to handle cross-node communication, Horizontal scaling with Docker &amp; ECS to manage traffic bursts, MongoDB for message persistence with TTL-based archiving</p><p><strong>Results:</strong> Achieved sub-100ms latency across geographic regions with 99.9% uptime and zero message loss during peak loads.</p></section><section><h3>Tech Stack</h3><div class="badges"><span class="badge">Node.js</span><span class="badge">Redis</span><span class="badge">GraphQL</span><span class="badge">Distributed Systems</span></div></section><section><a href="../../index.html">Back to Home</a></section></main></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Chat Microservice - Real-Time Messaging Platform | Ashutosh Raval</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="static-nav">
+    <a href="../" class="nav-logo">Ashutosh Raval</a>
+    <ul class="nav-links">
+      <li><a href="../projects/chat-microservice.html">Projects</a></li>
+      <li><a href="../assets/resume/Ashutosh_Raval_Resume.pdf">Resume</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="project-hero">
+    <a href="../projects/chat-microservice.html" class="back-link">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3L5 8l5 5"/></svg>
+      Back to Projects
+    </a>
+
+    <p class="hero-label">Case Study</p>
+    <h1 class="hero-title">Chat Microservice - Real-Time Messaging Platform</h1>
+    <p class="hero-subtitle">Engineered a horizontally-scalable chat system supporting 100k+ concurrent users with distributed state management.</p>
+
+    <div class="tag-row"><span class="tag">Node.js</span><span class="tag">Redis</span><span class="tag">GraphQL</span></div>
+
+    <div class="meta-row"></div>
+  </section>
+
+  <div class="divider"></div>
+
+  <div class="project-content">
+  <div class="section">
+    <p class="section-label">01 / The Challenge</p>
+    <h2>Fragmented workflows across project stakeholders</h2>
+    <p>Need to support 100k+ concurrent users with low latency and global presence management while maintaining message ordering and consistency.</p>
+  </div>
+  <div class="section">
+    <p class="section-label">05 / Architecture Insights</p>
+    <h2>Design decisions that drive reliability</h2>
+    <div class="arch-card"><p>The system uses a 'Fan-out' pattern for message distribution. Load balancers use consistent hashing to route users to the nearest node, while Redis acts as the central orchestrator for state synchronization across the cluster.</p><div class="decisions"><div class="decision"><div class="decision-dot"></div><div class="decision-text"><strong>Redis Pub/Sub for presence to handle cross</strong> node communication</div></div><div class="decision"><div class="decision-dot"></div><div class="decision-text">Horizontal scaling with Docker &amp; ECS to manage traffic bursts</div></div><div class="decision"><div class="decision-dot"></div><div class="decision-text"><strong>MongoDB for message persistence with TTL</strong> based archiving</div></div></div></div>
+  </div>
+  <div class="section">
+    <p class="section-label">06 / Impact</p>
+    <h2>Measurable outcomes delivered</h2>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="impact-value">100<span>k+ concurrent users</span></div>
+        <div class="impact-label"></div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-value">95<span>% test coverage</span></div>
+        <div class="impact-label"></div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-value">sub-100<span>ms latency</span></div>
+        <div class="impact-label"></div>
+      </div></div>
+  </div>
+  <div class="section">
+    <p class="section-label">07 / Technology & Infrastructure</p>
+    <h2>Stack</h2>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:1.5rem"><span class="stack-tag">Node.js</span><span class="stack-tag">Redis</span><span class="stack-tag">GraphQL</span><span class="stack-tag">Distributed Systems</span><span class="stack-tag" style="color:#10b981;border-color:rgba(16,185,129,0.2)">AWS ECS</span><span class="stack-tag" style="color:#10b981;border-color:rgba(16,185,129,0.2)">Terraform</span><span class="stack-tag" style="color:#10b981;border-color:rgba(16,185,129,0.2)">GitHub Actions CI/CD</span><span class="stack-tag" style="color:#10b981;border-color:rgba(16,185,129,0.2)">Prometheus/Grafana</span></div>
+  </div></div>
+
+  <footer class="project-footer">&copy; 2026 Ashutosh Raval</footer>
+</body>
+</html>
