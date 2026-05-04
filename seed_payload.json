@@ -50,40 +50,19 @@
         "Distributed load balancing across multiple instances with sticky sessions",
         "GraphQL subscription APIs for real-time data synchronization"
       ],
-      "techStack": [
-        "Node.js",
-        "MongoDB",
-        "Redis",
-        "GraphQL",
-        "Socket.IO",
-        "Docker",
-        "AWS"
-      ],
-      "infrastructure": [
-        "AWS ECS",
-        "Terraform",
-        "GitHub Actions CI/CD",
-        "Prometheus/Grafana"
-      ],
-      "metrics": [
-        "100k+ concurrent users",
-        "95% test coverage",
-        "sub-100ms latency"
-      ],
+      "techStack": ["Node.js","MongoDB","Redis","GraphQL","Socket.IO","Docker","AWS"],
+      "infrastructure": ["AWS ECS","Terraform","GitHub Actions CI/CD","Prometheus/Grafana"],
+      "metrics": ["100k+ concurrent users","95% test coverage","sub-100ms latency"],
       "impact": "Enabled seamless real-time communication at scale for a global user base.",
       "caseStudy": {
         "problemStatement": "Need to support 100k+ concurrent users with low latency and global presence management while maintaining message ordering and consistency.",
         "solutionArchitecture": "Decoupled messaging architecture using WebSocket for bi-directional communication, Redis Pub/Sub for cross-node presence broadcasting, and GraphQL subscriptions for schema-driven real-time updates.",
-        "decisions": [
-          "Redis Pub/Sub for presence to handle cross-node communication",
-          "Horizontal scaling with Docker & ECS to manage traffic bursts",
-          "MongoDB for message persistence with TTL-based archiving"
-        ],
+        "decisions": ["Redis Pub/Sub for presence to handle cross-node communication","Horizontal scaling with Docker & ECS to manage traffic bursts","MongoDB for message persistence with TTL-based archiving"],
         "results": "Achieved sub-100ms latency across geographic regions with 99.9% uptime and zero message loss during peak loads.",
         "architectureDetails": "The system uses a 'Fan-out' pattern for message distribution. Load balancers use consistent hashing to route users to the nearest node, while Redis acts as the central orchestrator for state synchronization across the cluster."
       },
-      "links": { "repo": "https://github.com/ashutosh/chat-microservice" },
-      "badges": ["Node.js", "Redis", "GraphQL", "Distributed Systems"]
+      "links": {},
+      "badges": ["Node.js","Redis","GraphQL","Distributed Systems"]
     },
     {
       "slug": "multi-tenant-slot-booking",
@@ -96,33 +75,19 @@
         "Dynamic slot allocation engine with time-zone aware scheduling",
         "Razorpay payment integration with automated payouts and ledger reconciliation"
       ],
-      "techStack": [
-        "Node.js",
-        "MongoDB",
-        "Razorpay",
-        "Express.js",
-        "WebSockets"
-      ],
-      "infrastructure": ["Docker Compose", "AWS RDS", "CircleCI", "ELK Stack"],
-      "metrics": [
-        "95% code coverage",
-        "zero overbooking incidents",
-        "100% data isolation audit success"
-      ],
+      "techStack": ["Node.js","MongoDB","Razorpay","Express.js","WebSockets"],
+      "infrastructure": ["Docker Compose","AWS RDS","CircleCI","ELK Stack"],
+      "metrics": ["95% code coverage","zero overbooking incidents","100% data isolation audit success"],
       "impact": "Provided a reliable foundation for B2B clients to manage thousands of bookings daily across multiple regions.",
       "caseStudy": {
         "problemStatement": "Building a SaaS that requires strict data isolation between tenants while allowing a shared resource pool and preventing race conditions during high-volume booking periods.",
         "solutionArchitecture": "Adopted a 'Shared Schema, Discriminator Column' approach for cost-efficiency with logical isolation via middleware. Implemented distributed locking using Redis for critical booking sections.",
-        "decisions": [
-          "Logical isolation via tenant_id middleware for performance",
-          "Distributed locks for the booking transaction to prevent race conditions",
-          "Webhook-based payment reconciliation to ensure eventual consistency"
-        ],
+        "decisions": ["Logical isolation via tenant_id middleware for performance","Distributed locks for the booking transaction to prevent race conditions","Webhook-based payment reconciliation to ensure eventual consistency"],
         "results": "Zero reported overbooking incidents in production over 2 years and sub-second tenant data access.",
         "architectureDetails": "The architecture follows a Layered (N-Tier) design with a dedicated 'Tenant Context' provider in the request pipeline, ensuring that every database query is automatically scoped to the current tenant."
       },
-      "links": { "repo": "https://github.com/ashutosh/slot-booking" },
-      "badges": ["Multi-Tenancy", "SaaS", "Distributed Locking", "Node.js"]
+      "links": {},
+      "badges": ["Multi-Tenancy","SaaS","Distributed Locking","Node.js"]
     },
     {
       "slug": "navodaya-transport",
@@ -135,36 +100,56 @@
         "Automated payment settlement pipeline from booking to delivery",
         "Comprehensive Admin dashboard for fleet monitoring and financial reconciliation"
       ],
-      "techStack": [
-        "Node.js",
-        "MongoDB",
-        "Razorpay",
-        "Traqo GPS",
-        "Express.js"
-      ],
-      "infrastructure": ["DigitalOcean Droplets", "PM2", "Redis Caching"],
-      "metrics": [
-        "Real-time shipment visibility",
-        "20% reduction in settlement errors",
-        "automated tracking for 500+ vehicles"
-      ],
+      "techStack": ["Node.js","MongoDB","Razorpay","Traqo GPS","Express.js"],
+      "infrastructure": ["DigitalOcean Droplets","PM2","Redis Caching"],
+      "metrics": ["Real-time shipment visibility","20% reduction in settlement errors","automated tracking for 500+ vehicles"],
       "impact": "Digitized traditional freight operations, significantly reducing manual overhead and increasing transparency.",
       "caseStudy": {
         "problemStatement": "Modernizing a legacy logistics process with real-time tracking and secure financial settlements across multiple stakeholders with varying access levels.",
         "solutionArchitecture": "Modular monolith architecture with a robust Event Bus for internal communication. Integrated IoT APIs for live vehicle status and implemented a custom state machine for booking lifecycles.",
-        "decisions": [
-          "State Machine for booking status to prevent illegal transitions",
-          "Integration with SIM-based GPS for high reliability in remote areas",
-          "Delayed settlement logic to allow for dispute resolution"
-        ],
+        "decisions": ["State Machine for booking status to prevent illegal transitions","Integration with SIM-based GPS for high reliability in remote areas","Delayed settlement logic to allow for dispute resolution"],
         "results": "Reduced manual coordination time by 40% and improved payment reconciliation accuracy by 98%.",
         "architectureDetails": "The platform utilizes a 'State-Machine' pattern to manage the complex lifecycle of a freight booking. Each status transition triggers specific events (notifications, ledger entries) via an internal event emitter."
       },
       "links": {
-        "repo": "https://github.com/ashutosh/navodaya-transport",
         "live": "https://stage.app.navodayatransport.com/"
       },
-      "badges": ["Logistics", "IoT Integration", "RBAC", "State Machine"]
+      "badges": ["Logistics","IoT Integration","RBAC","State Machine"]
+    },
+    {
+      "slug": "ccm-construction-management",
+      "title": "CCM — Construction & Contractor Management",
+      "category": "Real Estate / Construction",
+      "description": "End-to-end real estate project lifecycle platform with role-based access for 5 stakeholder types, covering inspection workflows, financial pipeline (Quotation → Job → Invoice), contractor time & expense tracking, and role-aware analytics dashboards.",
+      "keyFeatures": [
+        "Multi-role system (Super Admin, Admin, Inspector, Contractor, Client)",
+        "Unified financial pipeline: Quotation → Job → Invoice",
+        "Role-aware analytics dashboard with date-range filtering",
+        "Contractor time and expense logging per job",
+        "Automated reminders via a scheduling module"
+      ],
+      "techStack": ["Node.js", "Express", "PostgreSQL", "Sequelize", "React", "React Router", "Axios", "JWT"],
+      "infrastructure": [],
+      "metrics": [
+        "5 roles unified into one platform",
+        "3 financial stages linked end-to-end",
+        "Zero cross-role data leakage via server-enforced RBAC"
+      ],
+      "impact": "Unified all project actors (clients, contractors, inspectors, admins) into a single platform, eliminating manual coordination, increasing accountability, and providing a clear audit trail for billing.",
+      "caseStudy": {
+        "problemStatement": "Construction project management involves many stakeholders operating in silos. This fragmentation leads to delays, lost accountability, and opaque billing cycles. The goal was to unify all actors onto a single platform with strict, role-based access.",
+        "solutionArchitecture": "Built a structured RESTful API in Node.js with a PostgreSQL database. The frontend is a React application that consumes role-scoped API responses. Data visibility is strictly enforced on the server-side for all endpoints.",
+        "decisions": [
+          "Server-side RBAC enforcement is critical; roles are validated at the API layer, not just on the client.",
+          "Linked financial entities (Quotation, Job, Invoice) use foreign key relationships in PostgreSQL to maintain referential integrity.",
+          "Dashboard data aggregations are computed server-side per-role to minimize data over-fetching.",
+          "Scheduling and reminders are modeled as first-class entities to support flexible, multi-stakeholder notifications."
+        ],
+        "results": "Unified 5 distinct stakeholder roles, linked 3 core financial stages end-to-end, and eliminated cross-role data leakage, replacing manual coordination with automated reminders and workflows.",
+        "architectureDetails": "The system's security model is built on server-side RBAC. Each API endpoint validates the user's role before returning or mutating data, which prevents unauthorized data access even if the client-side UI is manipulated. This ensures a secure-by-default architecture."
+      },
+      "links": {},
+      "badges": ["Node.js", "PostgreSQL", "React", "RBAC", "Multi-Role", "Real Estate"]
     }
   ]
 }

@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CCM – Construction & Contractor Management | Ashutosh Raval</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --bg-card: #111118;
+      --bg-card2: #16161f;
+      --border: rgba(255,255,255,0.08);
+      --border-accent: rgba(99,179,237,0.35);
+      --text: #e8e8f0;
+      --muted: #8888a0;
+      --accent: #63b3ed;
+      --accent2: #68d391;
+      --accent3: #f6ad55;
+      --tag-bg: rgba(99,179,237,0.1);
+      --tag-text: #90cdf4;
+      --font: 'Inter', sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 15px;
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10,10,15,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    .nav-logo { font-size: 15px; font-weight: 600; color: var(--text); text-decoration: none; letter-spacing: -0.01em; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--text); }
+
+    /* HERO */
+    .hero {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 5rem 2rem 3.5rem;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--muted);
+      text-decoration: none;
+      margin-bottom: 2.5rem;
+      transition: color .2s;
+    }
+    .back-link:hover { color: var(--accent); }
+    .back-link svg { width: 14px; height: 14px; }
+
+    .hero-label {
+      font-size: 11px;
+      font-family: var(--mono);
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 1.25rem;
+      color: #fff;
+    }
+    .hero-subtitle {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 620px;
+      margin-bottom: 2rem;
+    }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 2.5rem; }
+    .tag {
+      font-size: 12px;
+      font-family: var(--mono);
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      border: 1px solid rgba(99,179,237,0.2);
+      border-radius: 4px;
+      padding: 3px 10px;
+    }
+    .tag.green { background: rgba(104,211,145,0.08); color: #9ae6b4; border-color: rgba(104,211,145,0.2); }
+    .tag.amber { background: rgba(246,173,85,0.08); color: #fbd38d; border-color: rgba(246,173,85,0.2); }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .meta-item { display: flex; flex-direction: column; gap: 3px; }
+    .meta-label { font-size: 11px; font-family: var(--mono); letter-spacing: 0.1em; color: var(--muted); text-transform: uppercase; }
+    .meta-value { font-size: 14px; color: var(--text); }
+
+    .live-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--accent);
+      text-decoration: none;
+      border: 1px solid var(--border-accent);
+      border-radius: 6px;
+      padding: 6px 14px;
+      transition: background .2s;
+    }
+    .live-link:hover { background: rgba(99,179,237,0.08); }
+    .live-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent2); flex-shrink: 0; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+    /* DIVIDER */
+    .divider { max-width: 860px; margin: 0 auto; height: 1px; background: var(--border); }
+
+    /* CONTENT */
+    .content { max-width: 860px; margin: 0 auto; padding: 0 2rem 6rem; }
+
+    .section { margin-top: 4rem; }
+    .section-label {
+      font-size: 11px;
+      font-family: var(--mono);
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .section h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+    .section p { color: var(--muted); max-width: 680px; }
+    .section p + p { margin-top: .75rem; }
+
+    /* ROLES GRID */
+    .roles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      margin-top: 1.5rem;
+    }
+    .role-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+      transition: border-color .2s;
+    }
+    .role-card:hover { border-color: rgba(99,179,237,0.3); }
+    .role-icon { font-size: 18px; margin-bottom: 8px; }
+    .role-name { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .role-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+    /* WORKFLOW */
+    .workflow { margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0; }
+    .wf-step {
+      display: flex;
+      gap: 1rem;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .wf-step:last-child { border-bottom: none; }
+    .wf-num {
+      flex-shrink: 0;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--tag-bg);
+      border: 1px solid rgba(99,179,237,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-family: var(--mono);
+      color: var(--accent);
+      font-weight: 500;
+      margin-top: 1px;
+    }
+    .wf-content { flex: 1; }
+    .wf-title { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
+    .wf-desc { font-size: 13px; color: var(--muted); }
+
+    /* MODULES */
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 12px;
+      margin-top: 1.5rem;
+    }
+    .module-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+    .module-card:hover { border-color: rgba(99,179,237,0.25); }
+    .module-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 6px; }
+    .module-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
+
+    /* IMPACT */
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 12px;
+      margin-top: 1.5rem;
+    }
+    .impact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      text-align: left;
+    }
+    .impact-value { font-size: 2rem; font-weight: 600; color: #fff; letter-spacing: -0.03em; line-height: 1; margin-bottom: 6px; }
+    .impact-value span { font-size: 1.1rem; color: var(--accent2); }
+    .impact-label { font-size: 13px; color: var(--muted); }
+
+    /* ARCH */
+    .arch-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      margin-top: 1.5rem;
+    }
+    .arch-card p { color: var(--muted); font-size: 14px; }
+    .decisions { margin-top: 1.25rem; display: flex; flex-direction: column; gap: 10px; }
+    .decision {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .decision-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+    .decision-text { font-size: 13px; color: var(--muted); }
+    .decision-text strong { color: var(--text); font-weight: 500; }
+
+    /* TECH STACK */
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 1.5rem;
+    }
+    .stack-group {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+    }
+    .stack-group-label { font-size: 11px; font-family: var(--mono); color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 10px; }
+    .stack-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .stack-tag {
+      font-size: 12px;
+      font-family: var(--mono);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2px 8px;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 600px) {
+      .hero { padding: 3rem 1.25rem 2.5rem; }
+      .content { padding: 0 1.25rem 4rem; }
+      nav { padding: 0 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="../" class="nav-logo">Ashutosh Raval</a>
+  <ul class="nav-links">
+    <li><a href="../projects/">Projects</a></li>
+    <li><a href="../resume/Ashutosh_Raval_Resume.pdf">Resume</a></li>
+    <li><a href="../contact/">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <a href="../projects/" class="back-link">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3L5 8l5 5"/></svg>
+    Back to Projects
+  </a>
+
+  <p class="hero-label">Case Study</p>
+  <h1>CCM — Construction &amp; Contractor Management</h1>
+  <p class="hero-subtitle">
+    End-to-end real estate project lifecycle platform with multi-role access, inspection workflows, financial management, and a role-aware analytics dashboard.
+  </p>
+
+  <div class="tag-row">
+    <span class="tag">Node.js</span>
+    <span class="tag">PostgreSQL</span>
+    <span class="tag">React</span>
+    <span class="tag green">RBAC</span>
+    <span class="tag green">Multi-Role</span>
+    <span class="tag amber">Real Estate</span>
+    <span class="tag amber">Financials</span>
+  </div>
+
+  <div class="meta-row">
+    <div class="meta-item">
+      <span class="meta-label">Domain</span>
+      <span class="meta-value">Real Estate / Construction</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Roles</span>
+      <span class="meta-value">5 (Super Admin, Admin, Inspector, Contractor, Client)</span>
+    </div>
+    <div class="meta-item">
+      <span class="meta-label">Live</span>
+      <a href="https://ccm-dev.webelight.co.in/" target="_blank" rel="noopener" class="live-link">
+        <span class="live-dot"></span>
+        ccm-dev.webelight.co.in
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<div class="content">
+
+  <!-- CHALLENGE -->
+  <div class="section">
+    <p class="section-label">01 / The Challenge</p>
+    <h2>Fragmented workflows across project stakeholders</h2>
+    <p>Construction and real estate project management involves many moving parts — clients, contractors, inspectors, and admin teams — often operating in silos. Manual coordination of inspections, financial approvals, and scheduling leads to delays, lost accountability, and opaque billing cycles.</p>
+    <p>CCM was built to unify all these actors under a single platform: giving each role exactly the data and actions they need, while maintaining a strict audit trail from project creation through to final invoice.</p>
+  </div>
+
+  <!-- ROLES -->
+  <div class="section">
+    <p class="section-label">02 / System Roles</p>
+    <h2>Five distinct roles, one unified platform</h2>
+    <div class="roles-grid">
+      <div class="role-card">
+        <div class="role-icon">🛡️</div>
+        <div class="role-name">Super Admin</div>
+        <div class="role-desc">Platform-level control. Manages admin accounts and global configuration.</div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">👤</div>
+        <div class="role-name">Admin</div>
+        <div class="role-desc">Core operator. Manages clients, projects, quotations, jobs, and invoices.</div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">🔍</div>
+        <div class="role-name">Inspector</div>
+        <div class="role-desc">Site-level actor. Conducts inspections and submits detailed inspection reports.</div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">🔧</div>
+        <div class="role-name">Contractor</div>
+        <div class="role-desc">Executes jobs. Logs time and expense entries against assigned jobs.</div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">🏢</div>
+        <div class="role-name">Client</div>
+        <div class="role-desc">End recipient. Views project progress, inspection reports, and receives invoices.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WORKFLOW -->
+  <div class="section">
+    <p class="section-label">03 / Core Workflow</p>
+    <h2>From project creation to invoice delivery</h2>
+    <div class="workflow">
+      <div class="wf-step">
+        <div class="wf-num">01</div>
+        <div class="wf-content">
+          <div class="wf-title">Client & Project Onboarding</div>
+          <div class="wf-desc">Admin creates a client profile and registers the real estate project, linking it to the client for full traceability.</div>
+        </div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">02</div>
+        <div class="wf-content">
+          <div class="wf-title">Site Inspection</div>
+          <div class="wf-desc">Inspector visits the site and submits a structured inspection report, which is accessible to the admin and client.</div>
+        </div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">03</div>
+        <div class="wf-content">
+          <div class="wf-title">Quotation</div>
+          <div class="wf-desc">Admin creates a quotation based on inspection findings, scoping the cost of work before committing resources.</div>
+        </div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">04</div>
+        <div class="wf-content">
+          <div class="wf-title">Job Assignment</div>
+          <div class="wf-desc">Admin converts an approved quotation into a job and assigns it to a contractor with defined scope and timelines.</div>
+        </div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">05</div>
+        <div class="wf-content">
+          <div class="wf-title">Time & Expense Logging</div>
+          <div class="wf-desc">Contractor logs hours worked and expenses incurred against the job, building a complete cost record in real time.</div>
+        </div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">06</div>
+        <div class="wf-content">
+          <div class="wf-title">Invoice Generation & Delivery</div>
+          <div class="wf-desc">Admin generates a final invoice from the job record and dispatches it directly to the client through the platform.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULES -->
+  <div class="section">
+    <p class="section-label">04 / Feature Modules</p>
+    <h2>Key capabilities across the platform</h2>
+    <div class="modules-grid">
+      <div class="module-card">
+        <div class="module-title">Role-Aware Dashboard</div>
+        <div class="module-desc">Each role sees contextual analytics — job status, invoice totals, and quote summaries — filterable by weekly, monthly, and yearly ranges.</div>
+      </div>
+      <div class="module-card">
+        <div class="module-title">Inspection Reports</div>
+        <div class="module-desc">Inspectors submit structured site reports with findings. Reports are linked to projects and inform quotation scoping.</div>
+      </div>
+      <div class="module-card">
+        <div class="module-title">Financial Pipeline</div>
+        <div class="module-desc">A connected Quotation → Job → Invoice flow ensures no billing step is skipped and amounts are always traceable to source work.</div>
+      </div>
+      <div class="module-card">
+        <div class="module-title">Contractor Time & Expense</div>
+        <div class="module-desc">Contractors log granular time entries and expenses per job, giving admins full visibility into actual vs. estimated costs.</div>
+      </div>
+      <div class="module-card">
+        <div class="module-title">Schedule & Reminders</div>
+        <div class="module-desc">Admin sets activity-specific reminders for inspectors, contractors, and clients via the scheduling module — reducing missed deadlines.</div>
+      </div>
+      <div class="module-card">
+        <div class="module-title">Project–Client Linkage</div>
+        <div class="module-desc">Every project is bound to a single client, ensuring data scoping and preventing cross-client information leakage.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ARCHITECTURE -->
+  <div class="section">
+    <p class="section-label">05 / Architecture Insights</p>
+    <h2>Design decisions that drive reliability</h2>
+    <div class="arch-card">
+      <p>CCM is built on a structured RESTful API in Node.js backed by PostgreSQL, with React on the frontend consuming role-scoped API responses. Data visibility is enforced server-side — each API endpoint validates the requesting user's role before returning or mutating data, ensuring that role-based restrictions cannot be bypassed through frontend manipulation.</p>
+      <div class="decisions">
+        <div class="decision">
+          <div class="decision-dot"></div>
+          <div class="decision-text"><strong>Server-side RBAC enforcement</strong> — Role permissions are validated at the API layer, not relying on frontend routing guards alone.</div>
+        </div>
+        <div class="decision">
+          <div class="decision-dot"></div>
+          <div class="decision-text"><strong>Linked financial entities</strong> — Quotation, Job, and Invoice share foreign key relationships in PostgreSQL, maintaining referential integrity across the billing pipeline.</div>
+        </div>
+        <div class="decision">
+          <div class="decision-dot"></div>
+          <div class="decision-text"><strong>Role-scoped dashboard queries</strong> — Dashboard aggregations (weekly / monthly / yearly) are computed server-side per role, minimising data over-fetching to the client.</div>
+        </div>
+        <div class="decision">
+          <div class="decision-dot"></div>
+          <div class="decision-text"><strong>Scheduling as a first-class module</strong> — Reminders are modelled as independent entities associated with projects, activities, and target roles — supporting flexible multi-stakeholder scheduling.</div>
+        </div>
+        <div class="decision">
+          <div class="decision-dot"></div>
+          <div class="decision-text"><strong>Inspection-to-quotation traceability</strong> — Inspection reports carry a direct reference to the project, enabling admins to scope quotations with full inspection context available in the same UI.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IMPACT -->
+  <div class="section">
+    <p class="section-label">06 / Impact</p>
+    <h2>Measurable outcomes delivered</h2>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="impact-value">5<span>×</span></div>
+        <div class="impact-label">Roles unified into one platform</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-value">3<span>×</span></div>
+        <div class="impact-label">Financial stages linked end-to-end</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-value">0<span>ms</span></div>
+        <div class="impact-label">Cross-role data leakage via server-enforced RBAC</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-value">↓<span> ops</span></div>
+        <div class="impact-label">Manual coordination replaced by automated reminders</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TECH STACK -->
+  <div class="section">
+    <p class="section-label">07 / Technology & Infrastructure</p>
+    <h2>Stack</h2>
+    <div class="stack-grid">
+      <div class="stack-group">
+        <div class="stack-group-label">Backend</div>
+        <div class="stack-tags">
+          <span class="stack-tag">Node.js</span>
+          <span class="stack-tag">Express</span>
+          <span class="stack-tag">PostgreSQL</span>
+          <span class="stack-tag">Sequelize</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-group-label">Frontend</div>
+        <div class="stack-tags">
+          <span class="stack-tag">React</span>
+          <span class="stack-tag">React Router</span>
+          <span class="stack-tag">Axios</span>
+        </div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-group-label">Auth & Security</div>
+        <div class="stack-tags">
+          <span class="stack-tag">JWT</span>
+          <span class="stack-tag">RBAC</span>
+          <span class="stack-tag">Role Middleware</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2025 Ashutosh Raval &mdash; Built with Node.js &amp; PostgreSQL
+</footer>
+
+</body>
+</html>
