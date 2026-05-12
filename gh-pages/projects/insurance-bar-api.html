@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Insurance Bar API — Multi-Role Insurance Management Platform | Ashutosh Raval</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="static-nav">
+    <a href="../" class="nav-logo">Ashutosh Raval</a>
+    <ul class="nav-links">
+      <li><a href="../projects/chat-microservice.html">Projects</a></li>
+      <li><a href="../assets/resume/Ashutosh_Raval_Resume.pdf">Resume</a></li>
+      <li><a href="../contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="project-hero">
+    <a href="../projects/chat-microservice.html" class="back-link">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10 3L5 8l5 5"/></svg>
+      Back to Projects
+    </a>
+
+    <p class="hero-label">Case Study</p>
+    <h1 class="hero-title">Insurance Bar API — Multi-Role Insurance Management Platform</h1>
+    <p class="hero-subtitle">Comprehensive insurance management platform with role-based access control for admins, customers, partners, and partner associates. Features end-to-end policy management, claims processing, case handling, loan management, and support ticketing system.</p>
+
+    <div class="tag-row"><span class="tag">Node.js</span><span class="tag">MongoDB</span><span class="tag">PostgreSQL</span><span class="tag amber">Insurance Tech</span><span class="tag green">Multi-Role</span></div>
+
+    <div class="meta-row"><div class="meta-item"><span class="meta-label">Live</span><a href="https://admin.theinsurancebar.com/" target="_blank" rel="noopener" class="live-link"><span class="live-dot"></span>admin.theinsurancebar.com</a></div></div>
+  </section>
+
+  <div class="divider"></div>
+
+  <div class="project-content">
+  <div class="section">
+    <p class="section-label">01 / The Challenge</p>
+    <h2>Fragmented workflows across project stakeholders</h2>
+    <p>Insurance companies and brokerages needed a unified platform to manage complex insurance operations involving multiple stakeholders (admins, customers, partners) with different access levels and requirements. The system needed to handle the complete lifecycle from policy creation to claims settlement while maintaining strict data security and role-based access controls.</p>
+  </div>
+  <div class="section">
+    <p class="section-label">02 / System Roles</p>
+    <h2>5 distinct roles, one unified platform</h2>
+    <div class="roles-grid">
+      <div class="role-card">
+        <div class="role-icon">&#x1F6E1;&#xFE0F;</div>
+        <div class="role-name">Super Admin</div>
+        <div class="role-desc">Platform-level control with full system access</div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">&#x1F464;</div>
+        <div class="role-name">Admin</div>
+        <div class="role-desc">Manages customers, partners, policies, and system configuration</div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">&#x1F4CB;</div>
+        <div class="role-name">Customer</div>
+        <div class="role-desc">End-users who purchase and manage insurance policies</div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">&#x1F4CB;</div>
+        <div class="role-name">Partner</div>
+        <div class="role-desc">Affiliated agents who can create policies on behalf of customers</div>
+      </div>
+      <div class="role-card">
+        <div class="role-icon">&#x1F4CB;</div>
+        <div class="role-name">Partner Associate</div>
+        <div class="role-desc">Team members working under partners with limited access</div>
+      </div></div>
+  </div>
+  <div class="section">
+    <p class="section-label">03 / Core Workflow</p>
+    <h2>From project creation to delivery</h2>
+    <div class="workflow">
+      <div class="wf-step">
+        <div class="wf-num">01</div>
+        <div class="wf-content">
+          <div class="wf-title">User Onboarding &amp; Role Assignment</div>
+          <div class="wf-desc">Admins create user profiles and assign appropriate roles (customer, partner, partner associate)</div>
+        </div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">02</div>
+        <div class="wf-content">
+          <div class="wf-title">Policy Creation &amp; Management</div>
+          <div class="wf-desc">Customers or partners create policies, attach partners, and manage policy lifecycle</div>
+        </div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">03</div>
+        <div class="wf-content">
+          <div class="wf-title">Claims Processing</div>
+          <div class="wf-desc">File claims against policies, assign administrators, and manage claim lifecycle</div>
+        </div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">04</div>
+        <div class="wf-content">
+          <div class="wf-title">Case Management</div>
+          <div class="wf-desc">Create cases linked to policies, progress through stages, and assign administrators</div>
+        </div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">05</div>
+        <div class="wf-content">
+          <div class="wf-title">Loan &amp; Subscription Management</div>
+          <div class="wf-desc">Manage loans, approvals, and partner subscription benefits</div>
+        </div>
+      </div>
+      <div class="wf-step">
+        <div class="wf-num">06</div>
+        <div class="wf-content">
+          <div class="wf-title">Support &amp; Resolution</div>
+          <div class="wf-desc">Handle support tickets and resolve user issues</div>
+        </div>
+      </div></div>
+  </div>
+  <div class="section">
+    <p class="section-label">04 / Feature Modules</p>
+    <h2>Key capabilities across the platform</h2>
+    <div class="modules-grid">
+      <div class="module-card">
+        <div class="module-title">Role-Based Access Control</div>
+        <div class="module-desc">Strict server-side enforcement of permissions for each user type</div>
+      </div>
+      <div class="module-card">
+        <div class="module-title">Policy Management Engine</div>
+        <div class="module-desc">Complete lifecycle from creation to expiration with partner attachment</div>
+      </div>
+      <div class="module-card">
+        <div class="module-title">Claims Processing Workflow</div>
+        <div class="module-desc">End-to-end claims handling with status tracking and resolution</div>
+      </div>
+      <div class="module-card">
+        <div class="module-title">Multi-Stage Case System</div>
+        <div class="module-desc">Configurable case workflow with approval/rejection mechanisms</div>
+      </div>
+      <div class="module-card">
+        <div class="module-title">Master Data Management</div>
+        <div class="module-desc">Flexible configuration of types, categories, insurance companies, and document types</div>
+      </div>
+      <div class="module-card">
+        <div class="module-title">Financial Processing</div>
+        <div class="module-desc">Loan management, subscription handling, and payment processing</div>
+      </div>
+      <div class="module-card">
+        <div class="module-title">Support Ticketing System</div>
+        <div class="module-desc">Track and resolve user issues with status updates</div>
+      </div></div>
+  </div>
+  <div class="section">
+    <p class="section-label">05 / Architecture Insights</p>
+    <h2>Design decisions that drive reliability</h2>
+    <div class="arch-card"><div class="decisions"><div class="decision"><div class="decision-dot"></div><div class="decision-text"><strong>Server</strong> side RBAC enforcement — Role permissions validated at API layer</div></div><div class="decision"><div class="decision-dot"></div><div class="decision-text">Workflow automation for policy, claim, and case lifecycles</div></div><div class="decision"><div class="decision-dot"></div><div class="decision-text">Master data management for flexible configuration</div></div><div class="decision"><div class="decision-dot"></div><div class="decision-text"><strong>Subscription</strong> based benefit system for partner networks</div></div><div class="decision"><div class="decision-dot"></div><div class="decision-text">Integrated payment processing for fees and subscriptions</div></div></div></div>
+  </div>
+  <div class="section">
+    <p class="section-label">06 / Impact</p>
+    <h2>Measurable outcomes delivered</h2>
+    <div class="impact-grid">
+      <div class="impact-card">
+        <div class="impact-value">4<span>×</span></div>
+        <div class="impact-label">Role-specific portals for different user types</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-value">E2<span>E</span></div>
+        <div class="impact-label">End-to-end insurance lifecycle management</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-value">✓</div>
+        <div class="impact-label">Secure data isolation between roles</div>
+      </div>
+      <div class="impact-card">
+        <div class="impact-value">$</div>
+        <div class="impact-label">Integrated payment and subscription handling</div>
+      </div></div>
+  </div>
+  <div class="section">
+    <p class="section-label">07 / Technology & Infrastructure</p>
+    <h2>Stack</h2>
+    <div class="stack-grid">
+      <div class="stack-group">
+        <div class="stack-group-label">Backend</div>
+        <div class="stack-tags"><span class="stack-tag">Node.js</span><span class="stack-tag">Express</span><span class="stack-tag">MongoDB</span><span class="stack-tag">PostgreSQL</span></div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-group-label">Frontend</div>
+        <div class="stack-tags"><span class="stack-tag">React</span><span class="stack-tag">React Router</span><span class="stack-tag">Axios</span></div>
+      </div>
+      <div class="stack-group">
+        <div class="stack-group-label">Auth &amp; Security</div>
+        <div class="stack-tags"><span class="stack-tag">JWT</span><span class="stack-tag">RBAC</span><span class="stack-tag">Role Middleware</span></div>
+      </div></div>
+  </div></div>
+
+  <footer class="project-footer">&copy; 2026 Ashutosh Raval</footer>
+</body>
+</html>

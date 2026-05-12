@@ -33,7 +33,10 @@ const roleIcons: Record<string, string> = {
   'Admin': '\u{1F464}',
   'Inspector': '\u{1F50D}',
   'Contractor': '\u{1F527}',
-  'Client': '\u{1F3E2}'
+  'Client': '\u{1F3E2}',
+  'Customer': '\u{1F9D1}',
+  'Partner': '\u{1F91D}',
+  'Partner Associate': '\u{1F465}'
 }
 
 function parseImpactValue(raw: string): { main: string; suffix?: string } {

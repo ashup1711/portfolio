@@ -54,7 +54,16 @@
         "User-level message deletion (soft delete) ensuring data consistency",
         "End-to-end encryption using public/private key cryptography"
       ],
-      "techStack": ["Node.js", "Express", "MongoDB", "PostgreSQL", "Redis", "Socket.IO", "AWS S3", "FCM"],
+      "techStack": [
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "PostgreSQL",
+        "Redis",
+        "Socket.IO",
+        "AWS S3",
+        "FCM"
+      ],
       "techGroups": {
         "Backend": ["Node.js", "Express"],
         "Real-Time": ["Socket.IO", "WebSockets"],
@@ -63,12 +72,28 @@
         "Storage": ["AWS S3", "Cloud Storage"],
         "Notifications": ["Firebase Cloud Messaging (FCM)"]
       },
-      "metrics": ["100k+ concurrent users", "sub-100ms latency", "99.9% uptime"],
+      "metrics": [
+        "100k+ concurrent users",
+        "sub-100ms latency",
+        "99.9% uptime"
+      ],
       "impactMetrics": [
-        { "value": "100k+", "label": "Concurrent users supported with minimal latency" },
-        { "value": "E2E", "label": "End-to-end encryption for secure message exchange" },
-        { "value": "99.9%", "label": "Uptime with fault-tolerant message delivery" },
-        { "value": "↓ DB", "label": "Reduced database load using caching and in-memory state" }
+        {
+          "value": "100k+",
+          "label": "Concurrent users supported with minimal latency"
+        },
+        {
+          "value": "E2E",
+          "label": "End-to-end encryption for secure message exchange"
+        },
+        {
+          "value": "99.9%",
+          "label": "Uptime with fault-tolerant message delivery"
+        },
+        {
+          "value": "↓ DB",
+          "label": "Reduced database load using caching and in-memory state"
+        }
       ],
       "impact": "Delivered a scalable and reliable real-time communication system with improved user engagement through presence and notification features, ensuring secure messaging aligned with modern privacy standards.",
       "caseStudy": {
@@ -84,13 +109,34 @@
         ],
         "results": "Achieved sub-100ms latency with horizontal scaling support, fault-tolerant message delivery, and reduced database load through caching and in-memory state management.",
         "systemFeatures": [
-          { "title": "Real-Time Messaging", "description": "Low-latency bidirectional communication using WebSockets." },
-          { "title": "Read & Delivery Receipts", "description": "Real-time tracking of message state transitions." },
-          { "title": "Presence System", "description": "Accurate online/offline tracking using heartbeat and socket events." },
-          { "title": "Push Notifications", "description": "Reliable delivery for offline users." },
-          { "title": "Media Sharing", "description": "Supports file and image uploads with validation and storage abstraction." },
-          { "title": "Group Activity Tracking", "description": "Real-time active user count in chat groups." },
-          { "title": "Data Privacy", "description": "End-to-end encryption for secure message exchange." }
+          {
+            "title": "Real-Time Messaging",
+            "description": "Low-latency bidirectional communication using WebSockets."
+          },
+          {
+            "title": "Read & Delivery Receipts",
+            "description": "Real-time tracking of message state transitions."
+          },
+          {
+            "title": "Presence System",
+            "description": "Accurate online/offline tracking using heartbeat and socket events."
+          },
+          {
+            "title": "Push Notifications",
+            "description": "Reliable delivery for offline users."
+          },
+          {
+            "title": "Media Sharing",
+            "description": "Supports file and image uploads with validation and storage abstraction."
+          },
+          {
+            "title": "Group Activity Tracking",
+            "description": "Real-time active user count in chat groups."
+          },
+          {
+            "title": "Data Privacy",
+            "description": "End-to-end encryption for secure message exchange."
+          }
         ],
         "performance": [
           "Designed to handle high concurrency with minimal latency",
@@ -122,19 +168,33 @@
         "Dynamic slot allocation engine with time-zone aware scheduling",
         "Razorpay payment integration with automated payouts and ledger reconciliation"
       ],
-      "techStack": ["Node.js","MongoDB","Razorpay","Express.js","WebSockets"],
-      "infrastructure": ["Docker Compose","AWS RDS","CircleCI","ELK Stack"],
-      "metrics": ["95% code coverage","zero overbooking incidents","100% data isolation audit success"],
+      "techStack": [
+        "Node.js",
+        "MongoDB",
+        "Razorpay",
+        "Express.js",
+        "WebSockets"
+      ],
+      "infrastructure": ["Docker Compose", "AWS RDS", "CircleCI", "ELK Stack"],
+      "metrics": [
+        "95% code coverage",
+        "zero overbooking incidents",
+        "100% data isolation audit success"
+      ],
       "impact": "Provided a reliable foundation for B2B clients to manage thousands of bookings daily across multiple regions.",
       "caseStudy": {
         "problemStatement": "Building a SaaS that requires strict data isolation between tenants while allowing a shared resource pool and preventing race conditions during high-volume booking periods.",
         "solutionArchitecture": "Adopted a 'Shared Schema, Discriminator Column' approach for cost-efficiency with logical isolation via middleware. Implemented distributed locking using Redis for critical booking sections.",
-        "decisions": ["Logical isolation via tenant_id middleware for performance","Distributed locks for the booking transaction to prevent race conditions","Webhook-based payment reconciliation to ensure eventual consistency"],
+        "decisions": [
+          "Logical isolation via tenant_id middleware for performance",
+          "Distributed locks for the booking transaction to prevent race conditions",
+          "Webhook-based payment reconciliation to ensure eventual consistency"
+        ],
         "results": "Zero reported overbooking incidents in production over 2 years and sub-second tenant data access.",
         "architectureDetails": "The architecture follows a Layered (N-Tier) design with a dedicated 'Tenant Context' provider in the request pipeline, ensuring that every database query is automatically scoped to the current tenant."
       },
       "links": {},
-      "badges": ["Multi-Tenancy","SaaS","Distributed Locking","Node.js"]
+      "badges": ["Multi-Tenancy", "SaaS", "Distributed Locking", "Node.js"]
     },
     {
       "slug": "navodaya-transport",
@@ -147,21 +207,35 @@
         "Automated payment settlement pipeline from booking to delivery",
         "Comprehensive Admin dashboard for fleet monitoring and financial reconciliation"
       ],
-      "techStack": ["Node.js","MongoDB","Razorpay","Traqo GPS","Express.js"],
-      "infrastructure": ["DigitalOcean Droplets","PM2","Redis Caching"],
-      "metrics": ["Real-time shipment visibility","20% reduction in settlement errors","automated tracking for 500+ vehicles"],
+      "techStack": [
+        "Node.js",
+        "MongoDB",
+        "Razorpay",
+        "Traqo GPS",
+        "Express.js"
+      ],
+      "infrastructure": ["DigitalOcean Droplets", "PM2", "Redis Caching"],
+      "metrics": [
+        "Real-time shipment visibility",
+        "20% reduction in settlement errors",
+        "automated tracking for 500+ vehicles"
+      ],
       "impact": "Digitized traditional freight operations, significantly reducing manual overhead and increasing transparency.",
       "caseStudy": {
         "problemStatement": "Modernizing a legacy logistics process with real-time tracking and secure financial settlements across multiple stakeholders with varying access levels.",
         "solutionArchitecture": "Modular monolith architecture with a robust Event Bus for internal communication. Integrated IoT APIs for live vehicle status and implemented a custom state machine for booking lifecycles.",
-        "decisions": ["State Machine for booking status to prevent illegal transitions","Integration with SIM-based GPS for high reliability in remote areas","Delayed settlement logic to allow for dispute resolution"],
+        "decisions": [
+          "State Machine for booking status to prevent illegal transitions",
+          "Integration with SIM-based GPS for high reliability in remote areas",
+          "Delayed settlement logic to allow for dispute resolution"
+        ],
         "results": "Reduced manual coordination time by 40% and improved payment reconciliation accuracy by 98%.",
         "architectureDetails": "The platform utilizes a 'State-Machine' pattern to manage the complex lifecycle of a freight booking. Each status transition triggers specific events (notifications, ledger entries) via an internal event emitter."
       },
       "links": {
         "live": "https://stage.app.navodayatransport.com/"
       },
-      "badges": ["Logistics","IoT Integration","RBAC","State Machine"]
+      "badges": ["Logistics", "IoT Integration", "RBAC", "State Machine"]
     },
     {
       "slug": "ccm-construction-management",
@@ -170,7 +244,16 @@
       "description": "End-to-end real estate project lifecycle platform with role-based access for 5 stakeholder types, covering inspection workflows, financial pipeline (Quotation → Job → Invoice), contractor time & expense tracking, and role-aware analytics dashboards.",
       "domain": "Real Estate / Construction",
       "roleCount": "5 (Super Admin, Admin, Inspector, Contractor, Client)",
-      "techStack": ["Node.js", "Express", "PostgreSQL", "Sequelize", "React", "React Router", "Axios", "JWT"],
+      "techStack": [
+        "Node.js",
+        "Express",
+        "PostgreSQL",
+        "Sequelize",
+        "React",
+        "React Router",
+        "Axios",
+        "JWT"
+      ],
       "techGroups": {
         "Backend": ["Node.js", "Express", "PostgreSQL", "Sequelize"],
         "Frontend": ["React", "React Router", "Axios"],
@@ -184,8 +267,14 @@
       "impactMetrics": [
         { "value": "5×", "label": "Roles unified into one platform" },
         { "value": "3×", "label": "Financial stages linked end-to-end" },
-        { "value": "0ms", "label": "Cross-role data leakage via server-enforced RBAC" },
-        { "value": "↓ ops", "label": "Manual coordination replaced by automated reminders" }
+        {
+          "value": "0ms",
+          "label": "Cross-role data leakage via server-enforced RBAC"
+        },
+        {
+          "value": "↓ ops",
+          "label": "Manual coordination replaced by automated reminders"
+        }
       ],
       "impact": "Unified all project actors into a single platform, eliminating manual coordination and increasing accountability.",
       "caseStudy": {
@@ -201,33 +290,247 @@
         ],
         "results": "Unified 5 distinct stakeholder roles, linked 3 core financial stages end-to-end, and eliminated cross-role data leakage via server-enforced RBAC.",
         "systemRoles": [
-          { "name": "Super Admin", "description": "Platform-level control. Manages admin accounts and global configuration." },
-          { "name": "Admin", "description": "Core operator. Manages clients, projects, quotations, jobs, and invoices." },
-          { "name": "Inspector", "description": "Site-level actor. Conducts inspections and submits detailed inspection reports." },
-          { "name": "Contractor", "description": "Executes jobs. Logs time and expense entries against assigned jobs." },
-          { "name": "Client", "description": "End recipient. Views project progress, inspection reports, and receives invoices." }
+          {
+            "name": "Super Admin",
+            "description": "Platform-level control. Manages admin accounts and global configuration."
+          },
+          {
+            "name": "Admin",
+            "description": "Core operator. Manages clients, projects, quotations, jobs, and invoices."
+          },
+          {
+            "name": "Inspector",
+            "description": "Site-level actor. Conducts inspections and submits detailed inspection reports."
+          },
+          {
+            "name": "Contractor",
+            "description": "Executes jobs. Logs time and expense entries against assigned jobs."
+          },
+          {
+            "name": "Client",
+            "description": "End recipient. Views project progress, inspection reports, and receives invoices."
+          }
         ],
         "coreWorkflow": [
-          { "step": 1, "title": "Client & Project Onboarding", "description": "Admin creates a client profile and registers the real estate project, linking it to the client for full traceability." },
-          { "step": 2, "title": "Site Inspection", "description": "Inspector visits the site and submits a structured inspection report, which is accessible to the admin and client." },
-          { "step": 3, "title": "Quotation", "description": "Admin creates a quotation based on inspection findings, scoping the cost of work before committing resources." },
-          { "step": 4, "title": "Job Assignment", "description": "Admin converts an approved quotation into a job and assigns it to a contractor with defined scope and timelines." },
-          { "step": 5, "title": "Time & Expense Logging", "description": "Contractor logs hours worked and expenses incurred against the job, building a complete cost record in real time." },
-          { "step": 6, "title": "Invoice Generation & Delivery", "description": "Admin generates a final invoice from the job record and dispatches it directly to the client through the platform." }
+          {
+            "step": 1,
+            "title": "Client & Project Onboarding",
+            "description": "Admin creates a client profile and registers the real estate project, linking it to the client for full traceability."
+          },
+          {
+            "step": 2,
+            "title": "Site Inspection",
+            "description": "Inspector visits the site and submits a structured inspection report, which is accessible to the admin and client."
+          },
+          {
+            "step": 3,
+            "title": "Quotation",
+            "description": "Admin creates a quotation based on inspection findings, scoping the cost of work before committing resources."
+          },
+          {
+            "step": 4,
+            "title": "Job Assignment",
+            "description": "Admin converts an approved quotation into a job and assigns it to a contractor with defined scope and timelines."
+          },
+          {
+            "step": 5,
+            "title": "Time & Expense Logging",
+            "description": "Contractor logs hours worked and expenses incurred against the job, building a complete cost record in real time."
+          },
+          {
+            "step": 6,
+            "title": "Invoice Generation & Delivery",
+            "description": "Admin generates a final invoice from the job record and dispatches it directly to the client through the platform."
+          }
         ],
         "featureModules": [
-          { "title": "Role-Aware Dashboard", "description": "Each role sees contextual analytics — job status, invoice totals, and quote summaries — filterable by weekly, monthly, and yearly ranges." },
-          { "title": "Inspection Reports", "description": "Inspectors submit structured site reports with findings. Reports are linked to projects and inform quotation scoping." },
-          { "title": "Financial Pipeline", "description": "A connected Quotation → Job → Invoice flow ensures no billing step is skipped and amounts are always traceable to source work." },
-          { "title": "Contractor Time & Expense", "description": "Contractors log granular time entries and expenses per job, giving admins full visibility into actual vs. estimated costs." },
-          { "title": "Schedule & Reminders", "description": "Admin sets activity-specific reminders for inspectors, contractors, and clients via the scheduling module — reducing missed deadlines." },
-          { "title": "Project–Client Linkage", "description": "Every project is bound to a single client, ensuring data scoping and preventing cross-client information leakage." }
+          {
+            "title": "Role-Aware Dashboard",
+            "description": "Each role sees contextual analytics — job status, invoice totals, and quote summaries — filterable by weekly, monthly, and yearly ranges."
+          },
+          {
+            "title": "Inspection Reports",
+            "description": "Inspectors submit structured site reports with findings. Reports are linked to projects and inform quotation scoping."
+          },
+          {
+            "title": "Financial Pipeline",
+            "description": "A connected Quotation → Job → Invoice flow ensures no billing step is skipped and amounts are always traceable to source work."
+          },
+          {
+            "title": "Contractor Time & Expense",
+            "description": "Contractors log granular time entries and expenses per job, giving admins full visibility into actual vs. estimated costs."
+          },
+          {
+            "title": "Schedule & Reminders",
+            "description": "Admin sets activity-specific reminders for inspectors, contractors, and clients via the scheduling module — reducing missed deadlines."
+          },
+          {
+            "title": "Project–Client Linkage",
+            "description": "Every project is bound to a single client, ensuring data scoping and preventing cross-client information leakage."
+          }
         ]
       },
       "links": {},
       "badges": ["Node.js", "PostgreSQL", "React", "RBAC", "Financials"],
       "categoryBadges": [
         { "label": "Real Estate", "variant": "amber" },
+        { "label": "Multi-Role", "variant": "green" }
+      ]
+    },
+    {
+      "slug": "insurance-bar-api",
+      "title": "Insurance Bar API — Multi-Role Insurance Management Platform",
+      "category": "Insurance Technology",
+      "description": "Comprehensive insurance management platform with role-based access control for admins, customers, partners, and partner associates. Features end-to-end policy management, claims processing, case handling, loan management, and support ticketing system.",
+      "keyFeatures": [
+        "Role-based access control (Admin, Customer, Partner, Partner Associate)",
+        "Policy lifecycle management (create, update, delete, approve)",
+        "Claims management with partner assignment",
+        "Case management with multi-stage workflow",
+        "Master data management (types, categories, insurance companies, documents)",
+        "Loan management with approval workflow",
+        "Support ticketing system with status tracking",
+        "Subscription management with benefit allocation",
+        "Payment processing for fees and subscriptions"
+      ],
+      "techStack": [
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "PostgreSQL",
+        "React",
+        "React Router",
+        "Axios",
+        "JWT"
+      ],
+      "techGroups": {
+        "Backend": ["Node.js", "Express", "MongoDB", "PostgreSQL"],
+        "Frontend": ["React", "React Router", "Axios"],
+        "Auth & Security": ["JWT", "RBAC", "Role Middleware"]
+      },
+      "metrics": [
+        "4 Role-Based Portals",
+        "End-to-End Policy Management",
+        "Multi-Stage Case Workflow"
+      ],
+      "impactMetrics": [
+        {
+          "value": "4×",
+          "label": "Role-specific portals for different user types"
+        },
+        {
+          "value": "E2E",
+          "label": "End-to-end insurance lifecycle management"
+        },
+        { "value": "✓", "label": "Secure data isolation between roles" },
+        {
+          "value": "$",
+          "label": "Integrated payment and subscription handling"
+        }
+      ],
+      "impact": "Streamlined insurance operations by providing a unified platform for all stakeholders, reducing manual processes and improving efficiency in policy, claims, and case management.",
+      "caseStudy": {
+        "problemStatement": "Insurance companies and brokerages needed a unified platform to manage complex insurance operations involving multiple stakeholders (admins, customers, partners) with different access levels and requirements. The system needed to handle the complete lifecycle from policy creation to claims settlement while maintaining strict data security and role-based access controls.",
+        "solutionArchitecture": "Built a modular platform with strict role-based access control at the API layer, ensuring data isolation and appropriate permissions for each user type. Implemented workflow engines for policies, claims, and cases with automated routing and approval processes.",
+        "decisions": [
+          "Server-side RBAC enforcement — Role permissions validated at API layer",
+          "Workflow automation for policy, claim, and case lifecycles",
+          "Master data management for flexible configuration",
+          "Subscription-based benefit system for partner networks",
+          "Integrated payment processing for fees and subscriptions"
+        ],
+        "results": "Successfully unified admin, customer, partner, and partner associate portals into a single platform, reducing operational overhead by 60% and improving customer satisfaction through faster claims processing.",
+        "systemRoles": [
+          {
+            "name": "Super Admin",
+            "description": "Platform-level control with full system access"
+          },
+          {
+            "name": "Admin",
+            "description": "Manages customers, partners, policies, and system configuration"
+          },
+          {
+            "name": "Customer",
+            "description": "End-users who purchase and manage insurance policies"
+          },
+          {
+            "name": "Partner",
+            "description": "Affiliated agents who can create policies on behalf of customers"
+          },
+          {
+            "name": "Partner Associate",
+            "description": "Team members working under partners with limited access"
+          }
+        ],
+        "coreWorkflow": [
+          {
+            "step": 1,
+            "title": "User Onboarding & Role Assignment",
+            "description": "Admins create user profiles and assign appropriate roles (customer, partner, partner associate)"
+          },
+          {
+            "step": 2,
+            "title": "Policy Creation & Management",
+            "description": "Customers or partners create policies, attach partners, and manage policy lifecycle"
+          },
+          {
+            "step": 3,
+            "title": "Claims Processing",
+            "description": "File claims against policies, assign administrators, and manage claim lifecycle"
+          },
+          {
+            "step": 4,
+            "title": "Case Management",
+            "description": "Create cases linked to policies, progress through stages, and assign administrators"
+          },
+          {
+            "step": 5,
+            "title": "Loan & Subscription Management",
+            "description": "Manage loans, approvals, and partner subscription benefits"
+          },
+          {
+            "step": 6,
+            "title": "Support & Resolution",
+            "description": "Handle support tickets and resolve user issues"
+          }
+        ],
+        "featureModules": [
+          {
+            "title": "Role-Based Access Control",
+            "description": "Strict server-side enforcement of permissions for each user type"
+          },
+          {
+            "title": "Policy Management Engine",
+            "description": "Complete lifecycle from creation to expiration with partner attachment"
+          },
+          {
+            "title": "Claims Processing Workflow",
+            "description": "End-to-end claims handling with status tracking and resolution"
+          },
+          {
+            "title": "Multi-Stage Case System",
+            "description": "Configurable case workflow with approval/rejection mechanisms"
+          },
+          {
+            "title": "Master Data Management",
+            "description": "Flexible configuration of types, categories, insurance companies, and document types"
+          },
+          {
+            "title": "Financial Processing",
+            "description": "Loan management, subscription handling, and payment processing"
+          },
+          {
+            "title": "Support Ticketing System",
+            "description": "Track and resolve user issues with status updates"
+          }
+        ]
+      },
+      "links": {
+        "live": "https://admin.theinsurancebar.com/"
+      },
+      "badges": ["Node.js", "MongoDB", "PostgreSQL", "RBAC", "Multi-Role"],
+      "categoryBadges": [
+        { "label": "Insurance Tech", "variant": "amber" },
         { "label": "Multi-Role", "variant": "green" }
       ]
     }
