@@ -283,7 +283,7 @@ function renderProjectPage(p) {
     <a href="../" class="nav-logo">Ashutosh Raval</a>
     <ul class="nav-links">
       <li><a href="../projects/chat-microservice.html">Projects</a></li>
-      <li><a href="../assets/resume/Ashutosh_Raval_Resume.pdf">Resume</a></li>
+      <li><a href="https://drive.google.com/uc?export=download&id=1E7TDI-G897_zsH1-PKVzAm1_guaqwjv4" target="_blank" rel="noopener noreferrer">Resume</a></li>
       <li><a href="../contact.html">Contact</a></li>
     </ul>
   </nav>

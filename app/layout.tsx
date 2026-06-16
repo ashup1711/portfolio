@@ -3,7 +3,6 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import './styles/globals.css'
 import { projects } from './data/portfolio'
-import { withBasePath } from './lib/siteUrl'
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000')
@@ -25,7 +24,7 @@ function Header() {
             ))}
           </div>
         </details>
-        <a href={withBasePath('/resume/Ashutosh_Raval_Resume.pdf')} style={{ color: '#cbd5e1', textDecoration: 'none' }}>Resume</a>
+        <a href="https://drive.google.com/uc?export=download&id=1E7TDI-G897_zsH1-PKVzAm1_guaqwjv4" style={{ color: '#cbd5e1', textDecoration: 'none' }} target="_blank" rel="noopener noreferrer">Resume</a>
         <Link href="/contact" style={{ color: '#cbd5e1', textDecoration: 'none' }}>Contact</Link>
       </nav>
     </header>
